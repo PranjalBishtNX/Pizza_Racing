@@ -22,7 +22,7 @@ public class Engine : MonoBehaviour {
 	void Update () {
 
 
-		//moveCar ();
+		moveCar ();
 	}
 
 	public void VisualizeWheel(Wheel whee)

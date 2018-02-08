@@ -6,7 +6,7 @@ public class Wheel {
 
 	public WheelCollider wheel;
 	public GameObject wheelMesh;
-
+	public int level;
 	public bool motor;
 	public bool steering;
 	public bool reverseTurn; 
