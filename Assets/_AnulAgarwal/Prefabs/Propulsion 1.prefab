@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4060603336964996}
   - component: {fileID: 114278842504490172}
   - component: {fileID: 54537590081943750}
+  - component: {fileID: 114382692150207724}
   m_Layer: 0
   m_Name: Propulsion 1
   m_TagString: Untagged
@@ -137,7 +138,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1059221910631228}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bb5e79eb356add42b764e1d84d7b156, type: 3}
   m_Name: 
@@ -145,6 +146,17 @@ MonoBehaviour:
   forceSpeed: 1000
   id: 2
   level: 1
+--- !u!114 &114382692150207724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1059221910631228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ff9a0f3fba09264a8293c0b4e40ffec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136120446580441538
 CapsuleCollider:
   m_ObjectHideFlags: 1

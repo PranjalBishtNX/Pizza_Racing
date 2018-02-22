@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4060603336964996}
   - component: {fileID: 114278842504490172}
   - component: {fileID: 54537590081943750}
+  - component: {fileID: 114176733731972240}
   m_Layer: 0
   m_Name: Propulsion
   m_TagString: Untagged
@@ -131,7 +132,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &114278842504490172
+--- !u!114 &114176733731972240
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -139,11 +140,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1059221910631228}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ff9a0f3fba09264a8293c0b4e40ffec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114278842504490172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1059221910631228}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bb5e79eb356add42b764e1d84d7b156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   forceSpeed: 1000
-  id: 1
+  id: 3
   level: 2
 --- !u!136 &136120446580441538
 CapsuleCollider:

@@ -11,7 +11,7 @@ public class GameListManager : MonoBehaviour {
 	public	List<PropulsionObject> propulsionObj;
 
 	[SerializeField]
-	public List<Wheel> wheel;
+	public List<GameObject> wheel;
 
 	// Use this for initialization
 	void Start () {

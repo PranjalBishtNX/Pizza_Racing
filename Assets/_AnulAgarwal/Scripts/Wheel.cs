@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[System.Serializable]
-public class Wheel {
+
+public class Wheel: MonoBehaviour {
 
 	public WheelCollider wheel;
 	public GameObject wheelMesh;
@@ -10,4 +10,5 @@ public class Wheel {
 	public bool motor;
 	public bool steering;
 	public bool reverseTurn; 
+	public int id;
 }

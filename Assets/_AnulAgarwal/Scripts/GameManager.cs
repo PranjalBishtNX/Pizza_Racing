@@ -19,18 +19,73 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField]
 	CarBuilder cb;
+
+	[SerializeField]
+	GameObject carBPanel;
+
 	// Use this for initialization
 	void Start () {
+	AttachmentPoint[] ap = FindObjectsOfType<AttachmentPoint> ();
+		foreach (AttachmentPoint pa in ap) {
 
+
+			pa.setGameManager(this);
+		}
 		isGamePaused = false;
+		//LoadGame ();
 	}
 	private Save createSaveGameObject(){
 
 		Save save = new Save ();
 		save.vehicleChasis = playerVehicle.vb.id;
 		save.vehiclePropulsion = playerVehicle.po.id;
+		foreach (Wheel wh in playerVehicle.wheels) {
+			CarPart cp = new CarPart ();
+			cp.posX = wh.wheelMesh.transform.parent.localPosition.x;
+			cp.posY = wh.wheelMesh.transform.parent.localPosition.y;
+			cp.posZ = wh.wheelMesh.transform.parent.localPosition.z;
+
+			print (cp.posX);
+			print (cp.posY);
+			print (cp.posZ);
+
+			cp.rotX = wh.wheelMesh.transform.localRotation.x;
+			cp.rotY = wh.wheelMesh.transform.localRotation.y;
+			cp.rotZ = wh.wheelMesh.transform.localRotation.z;
+
+	
+			cp.objID = wh.id;
+	
+			save.carParts.Add (cp);
+		}
+		CarPart cpp = new CarPart ();
+		cpp.posX = playerVehicle.po.transform.localPosition.x;
+		cpp.posY = playerVehicle.po.transform.localPosition.y;
+		cpp.posZ = playerVehicle.po.transform.localPosition.z;
+
+		cpp.rotX = playerVehicle.po.transform.localRotation.x;
+		cpp.rotY = playerVehicle.po.transform.localRotation.y;
+		cpp.rotZ = playerVehicle.po.transform.localRotation.z;
+
+		cpp.objID = playerVehicle.po.id;
+
+		save.carParts.Add (cpp);
+
+
+	//	save.vehicleWheels = playerVehicle.wheels;
 		return save;
 	}
+	public void displayBuildingOptions(GameObject attachP){
+
+
+		togglePause ();
+		carBPanel.SetActive (true);
+		cb.setCurrentAttachmentPoint (attachP);
+
+	}
+
+
+
 	public void LoadGame(){
 
 
@@ -41,7 +96,8 @@ public class GameManager : MonoBehaviour {
 			Save save = (Save)bf.Deserialize (fil);
 			fil.Close ();
 		
-			cb.replaceParts (save.vehicleChasis, save.vehiclePropulsion);
+		//	cb.replaceParts (save.vehicleChasis, save.vehiclePropulsion);
+			cb.loadCar(save.carParts, save.vehicleChasis, save.vehiclePropulsion);
 			print ("Loaded: Game");
 
 		}
@@ -77,6 +133,24 @@ public class GameManager : MonoBehaviour {
 		}
 
 		goa.SetActive (true);
+	}
+	public void enterEditMode(){
+
+		//disable rigidbody & gravity from all applicable items
+		//disable car movement 
+		//disable propulsion movement
+		//Enable object rotation
+
+
+	}
+	public void enterPlayMode(){
+
+		//enable rigidbody & gravity from all attached items
+		//enable car movement
+		//enable propulsion movement
+		//Disable object rotation
+		//Make camera follow car from a distance
+
 	}
 	public void changeScene(string scene){
 

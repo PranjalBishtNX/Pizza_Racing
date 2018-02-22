@@ -11,7 +11,19 @@ public class Vehicle : MonoBehaviour {
 	public PropulsionObject po;
 
 	[SerializeField]
-	List<Wheel> wheels;
+	public List<Wheel> wheels;
+
+	[SerializeField]
+	public List<GameObject> spawnerList;
+
+	[SerializeField]
+	public GameManager gm;
+
+	[SerializeField]
+	public List<GameObject> attachmentPoints;
+
+	[SerializeField]
+	public List<Attacher> attachPoints;
 	// Use this for initialization
 	void Start () {
 		

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Engine : MonoBehaviour {
 
 	[SerializeField]
-	List<Wheel> wheelInfo;
+	public List<Wheel> wheelInfo;
 
 	[SerializeField]
 	public float maxSpeed;

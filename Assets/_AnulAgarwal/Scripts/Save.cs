@@ -6,5 +6,7 @@ public class Save {
 	public int vehicleChasis;
 	public List<Wheel> vehicleWheels;
 	public int vehiclePropulsion;
+	public List<CarPart> carParts = new List<CarPart> ();
+//	public GameObject go;
 
 }
