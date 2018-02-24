@@ -39,7 +39,7 @@ public class CarBuilder : MonoBehaviour {
 	VehicleBody tmp_vehicle;
 	[SerializeField]
 	VehicleBody orig_vehicle;
-
+	public bool canEditVehicle;
 	PropulsionObject tmp_propulsion;
 	PropulsionObject orig_propulsion;
 
@@ -57,7 +57,7 @@ public class CarBuilder : MonoBehaviour {
 	public GameObject currentAttachmentPoint;
 
 	[SerializeField]
-	List<BuilderPointAttacher> pointList;
+public	List<BuilderPointAttacher> pointList;
 
 	public int typeNumber;
 	// Use this for initialization
@@ -103,7 +103,7 @@ public class CarBuilder : MonoBehaviour {
 
 
 	public void clearOldCar(){
-
+		if(pointList.Count>0)
 		foreach (BuilderPointAttacher bp in pointList) {
 			
 				Destroy (bp.gameObj);
@@ -117,17 +117,30 @@ public class CarBuilder : MonoBehaviour {
 		//attach and store this temporary for everytime the player changes attachment point
 		//Destroy game object from tmpspanwed objects list and instantiate it near the car
 		//If other object is selected revert the changes and spawn
-		GameObject obj = Instantiate(objec, currentAttachmentPoint.transform.position, objec.transform.rotation);
+		GameObject obj = Instantiate(objec, currentAttachmentPoint.transform.position,currentAttachmentPoint.transform.rotation);
+		print (objec.transform.localRotation);
 		tmpSpawnedObj.Remove (obj);
-		obj.transform.SetParent (vehicle.transform);
-
+		obj.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
+		List<BuilderPointAttacher> tmp_bp = new List<BuilderPointAttacher> ();
 		foreach (BuilderPointAttacher bp in pointList) {
 			if (bp.attachmentPoint == currentAttachmentPoint) {
+				if (bp.gameObj.GetComponent<Wheel> () != null) {
+
+					vehicle.wheels.Remove (bp.gameObj.GetComponent<Wheel> ());
+				}
+		//		bp.gameObj.SetActive (false);
 				Destroy (bp.gameObj);
-				pointList.Remove (bp);
+				//pointList.Remove (bp);
+				tmp_bp.Add (bp);
+
 			}
 
 		}
+		foreach (BuilderPointAttacher bpaa in tmp_bp) {
+			pointList.Remove (bpaa);
+
+		}
+
 		BuilderPointAttacher bpa = new BuilderPointAttacher ();
 		bpa.attachmentPoint = currentAttachmentPoint;
 		bpa.gameObj = obj;
@@ -139,7 +152,7 @@ public class CarBuilder : MonoBehaviour {
 
 		} else {
 			
-			//vehicle.GetComponent<Engine> ().wheelInfo.Add (whee);
+			vehicle.GetComponent<Engine> ().wheelInfo.Add (obj.GetComponent<Wheel>());
 			vehicle.wheels.Add (obj.GetComponent<Wheel>());
 
 		}
@@ -232,7 +245,7 @@ public class CarBuilder : MonoBehaviour {
 	
 		PropulsionObject po = Instantiate (tmp_po [index ], vehicle.po.transform.position, vehicle.po.transform.rotation) as PropulsionObject;
 
-		po.transform.SetParent (vehicle.transform);
+		po.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
 
 		Destroy (vehicle.po.gameObject);
 
@@ -307,7 +320,7 @@ public class CarBuilder : MonoBehaviour {
 
 		VehicleBody go = Instantiate (glm.vehicleBody[body_orig_id], vehicle.vb.transform.position, vehicle.vb.transform.rotation) as VehicleBody;
 
-		go.transform.SetParent (vehicle.transform);
+		go.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
 		vehicle.vb = go;
 
 
@@ -316,7 +329,7 @@ public class CarBuilder : MonoBehaviour {
 		Destroy (vehicle.po.gameObject);
 
 		PropulsionObject po = Instantiate (glm.propulsionObj[propulsion_orig_id],vehicle.po.transform.position, vehicle.po.transform.rotation) as PropulsionObject;
-		po.transform.SetParent (vehicle.transform);
+		po.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
 		vehicle.po = orig_propulsion;
 
 	}
@@ -326,59 +339,70 @@ public class CarBuilder : MonoBehaviour {
 	public void loadCar(List<CarPart> cp, int vehicleBody, int po){
 		clearOldCar ();
 		cpp = cp;
-		//Check if object is null or not
-		if (vehicle.vb != null) {
-		//	Destroy (vehicle.vb.gameObject);
-		}
-	//	vehicle.vb = Instantiate (glm.vehicleBody.Find (d => d.id == vehicleBody), glm.vehicleBody.Find (d => d.id == vehicleBody).transform.position,glm.vehicleBody.Find (d => d.id == vehicleBody).transform.rotation) as VehicleBody;
-	//		vehicle.vb.transform.SetParent (vehicle.transform);
+		if (cp.Count > 0) {
+			//Check if object is null or not
+			if (vehicle.vb != null) {
+				//	Destroy (vehicle.vb.gameObject);
+			}
+			//	vehicle.vb = Instantiate (glm.vehicleBody.Find (d => d.id == vehicleBody), glm.vehicleBody.Find (d => d.id == vehicleBody).transform.position,glm.vehicleBody.Find (d => d.id == vehicleBody).transform.rotation) as VehicleBody;
+			//		vehicle.vb.transform.SetParent (vehicle.transform);
 
 		
-		if (vehicle.po != null) {
-			Destroy (vehicle.po.gameObject);
-		}
-		Vector3 newPos = new Vector3( cp.Find(d=> d.objID == po).posX,cp.Find(d=> d.objID == po).posY,cp.Find(d=> d.objID == po).posZ);
-		Vector3 newRot = new Vector3( cp.Find(d=> d.objID == po).rotX,cp.Find(d=> d.objID == po).rotY,cp.Find(d=> d.objID == po).rotZ);
+			if (vehicle.po != null) {
+				Destroy (vehicle.po.gameObject);
+			} else if(po!=0){
+				GameObject pointAttached= vehicle.attachmentPoints.Find(d=> d.GetComponent<AttachmentPoint>().id==cp.Find (da => da.objID == po).attachID);
 
-		vehicle.po = Instantiate (glm.propulsionObj.Find (d => d.id == po),newPos,Quaternion.identity) as PropulsionObject;
+				GameObject go= Instantiate (glm.propulsionObj.Find (d => d.id == po).gameObject, pointAttached.transform.position, pointAttached.transform.rotation);
+				vehicle.po = go.GetComponent<PropulsionObject> ();
 
-			vehicle.po.transform.SetParent (vehicle.transform);
-		vehicle.po.transform.localPosition = newPos;
-		
-	
-		foreach (CarPart cpa in cp) {
-			foreach (GameObject go in glm.wheel) {
-				if (go.GetComponent<Wheel> ().id == cpa.objID) {
+				vehicle.po.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody> ().transform);
+				vehicle.po.transform.localPosition = pointAttached.transform.position;
+				BuilderPointAttacher bp = new BuilderPointAttacher ();
+				bp.attachmentPoint = pointAttached;
+				bp.gameObj = go;
+				pointList.Add (bp);
 
-					vehicle.wheels.Add (go.GetComponent<Wheel>());
-					//need to check id and select object
-					GameObject goa= Instantiate (go, Vector3.zero,Quaternion.identity);
-					goa.transform.SetParent (vehicle.transform);
-					//not spawning on the desired position
-					goa.transform.localPosition = new Vector3 (cpa.posX, cpa.posY, cpa.posZ);
+			}
+			foreach (CarPart cpa in cp) {
+				foreach (GameObject go in glm.wheel) {
+					if (go.GetComponent<Wheel> ().id == cpa.objID) {
+						GameObject pointAttached= vehicle.attachmentPoints.Find(d=> d.GetComponent<AttachmentPoint>().id==cp.Find (da => da.objID == cpa.objID).attachID);
+
+						vehicle.wheels.Add (go.GetComponent<Wheel> ());
+						//need to check id and select object
+						GameObject goa = Instantiate (go, pointAttached.transform.position, pointAttached.transform.rotation);
+						goa.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody> ().transform);
+						//not spawning on the desired position
+					//	goa.transform.localPosition = pointAttached.transform.position;
+						BuilderPointAttacher bp = new BuilderPointAttacher ();
+						bp.attachmentPoint = pointAttached;
+						bp.gameObj = goa;
+						pointList.Add (bp);
+					}
+
 				}
+
+	
+		
+				//	go.transform.localPosition = new Vector3 (cpa.posX, cpa.posY, cpa.posZ);
 
 			}
 
-	
-		
-		//	go.transform.localPosition = new Vector3 (cpa.posX, cpa.posY, cpa.posZ);
-
 		}
-
 
 	}
 	public void replaceParts(int vehicleBody, int po){
 		Destroy (vehicle.vb.gameObject);
 
 		vehicle.vb =Instantiate (glm.vehicleBody.Find(d=> d.id==vehicleBody), vehicle.vb.transform.position, vehicle.vb.transform.rotation) as VehicleBody;
-		vehicle.vb.transform.SetParent (vehicle.transform);
+		vehicle.vb.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
 
 		Destroy (vehicle.po.gameObject);
 
 		vehicle.po = Instantiate (glm.propulsionObj.Find(d=> d.id==po), vehicle.po.transform.position, vehicle.po.transform.rotation) as PropulsionObject;
 
-		vehicle.po.transform.SetParent (vehicle.transform);
+		vehicle.po.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
 
 	}
 
@@ -386,7 +410,7 @@ public class CarBuilder : MonoBehaviour {
 		Destroy (vehicle.vb.gameObject);
 
 		vehicle.vb =Instantiate (glm.vehicleBody.Find(d=> d.id==id), vehicle.vb.transform.position, vehicle.vb.transform.rotation) as VehicleBody;
-		vehicle.vb.transform.SetParent (vehicle.transform);
+		vehicle.vb.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
 
 	}
 	public void replaceProp(int id){
@@ -406,7 +430,7 @@ public class CarBuilder : MonoBehaviour {
 
 
 		VehicleBody go = Instantiate (glm.vehicleBody [index], vehicle.vb.transform.position, vehicle.vb.transform.rotation) as VehicleBody;
-		go.transform.SetParent (vehicle.transform);
+		go.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
 		//	vehicle.vb.gameObject = glm.vehicleBody [1].gameObject;
 
 		Destroy(vehicle.vb.gameObject);

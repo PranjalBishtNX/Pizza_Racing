@@ -14,6 +14,6 @@ public class CarPart{
 	public float scaleX;
 	public float scaleY;
 	public float scaleZ;
-
+	public float attachID;
 
 }

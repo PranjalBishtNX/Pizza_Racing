@@ -6,6 +6,9 @@ public class AttachmentPoint : MonoBehaviour {
 
 	[SerializeField]
 	public GameManager gm;
+
+	[SerializeField]
+	public float id;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,10 +20,12 @@ public class AttachmentPoint : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
+				print (hit.collider.tag);
 
-				if (hit.collider == GetComponent<Collider> ()) {
+				if (hit.collider==GetComponent<Collider>()) {
+				//	print ("hitt");
+					//BUGGGG
 					gm.displayBuildingOptions (this.gameObject);
-
 
 				}
 			}

@@ -48,11 +48,14 @@ public class Engine : MonoBehaviour {
 		}
 
 		foreach (Wheel whee in wheelInfo) {
-
+			if (whee == null) {
+				wheelInfo.Remove (whee);
+				break;
+			}
 			if (whee.steering == true) {
 				//truck_Info.leftWheel.steerAngle = truck_Info.rightWheel.steerAngle = ((whee.reverseTurn)?-1:1)*steering;
 				whee.wheel.steerAngle= ((whee.reverseTurn)?-1:1)*steering;
-
+				print (whee.wheel.steerAngle);
 			}
 
 			if (whee.motor == true)

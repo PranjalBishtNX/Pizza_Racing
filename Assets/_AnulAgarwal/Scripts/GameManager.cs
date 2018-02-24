@@ -23,6 +23,14 @@ public class GameManager : MonoBehaviour {
 	[SerializeField]
 	GameObject carBPanel;
 
+	[SerializeField]
+	Camera editCam;
+
+	[SerializeField]
+	Camera mainCam;
+
+	[SerializeField]
+	GameObject pausePanel;
 	// Use this for initialization
 	void Start () {
 	AttachmentPoint[] ap = FindObjectsOfType<AttachmentPoint> ();
@@ -37,39 +45,50 @@ public class GameManager : MonoBehaviour {
 	private Save createSaveGameObject(){
 
 		Save save = new Save ();
+		if(playerVehicle.vb!=null)
 		save.vehicleChasis = playerVehicle.vb.id;
-		save.vehiclePropulsion = playerVehicle.po.id;
+		if (playerVehicle.po != null) {
+			save.vehiclePropulsion = playerVehicle.po.id;
+
+			CarPart cpp = new CarPart ();
+		//	cpp.posX = playerVehicle.po.transform.localPosition.x;
+		//	cpp.posY = playerVehicle.po.transform.localPosition.y;
+		//	cpp.posZ = playerVehicle.po.transform.localPosition.z;
+
+		//	cpp.rotX = playerVehicle.po.transform.localRotation.x;
+		//	cpp.rotY = playerVehicle.po.transform.localRotation.y;
+//			cpp.rotZ = playerVehicle.po.transform.localRotation.z;
+
+			cpp.objID = playerVehicle.po.id;
+			BuilderPointAttacher bpa= cb.pointList.Find (d => d.gameObj == playerVehicle.po.gameObject);
+			print ( bpa.attachmentPoint.GetComponent<AttachmentPoint> ().id);
+			cpp.attachID = bpa.attachmentPoint.GetComponent<AttachmentPoint> ().id;
+			save.carParts.Add (cpp);
+
+		}
+		if(playerVehicle.wheels.Count>0)
 		foreach (Wheel wh in playerVehicle.wheels) {
 			CarPart cp = new CarPart ();
-			cp.posX = wh.wheelMesh.transform.parent.localPosition.x;
-			cp.posY = wh.wheelMesh.transform.parent.localPosition.y;
-			cp.posZ = wh.wheelMesh.transform.parent.localPosition.z;
+		//	cp.posX = wh.wheelMesh.transform.parent.localPosition.x;
+		//	cp.posY = wh.wheelMesh.transform.parent.localPosition.y;
+		//	cp.posZ = wh.wheelMesh.transform.parent.localPosition.z;
 
-			print (cp.posX);
-			print (cp.posY);
-			print (cp.posZ);
+		//	print (cp.posX);
+		//	print (cp.posY);
+		//	print (cp.posZ);
 
-			cp.rotX = wh.wheelMesh.transform.localRotation.x;
-			cp.rotY = wh.wheelMesh.transform.localRotation.y;
-			cp.rotZ = wh.wheelMesh.transform.localRotation.z;
+		//	cp.rotX = wh.wheelMesh.transform.localRotation.x;
+		//	cp.rotY = wh.wheelMesh.transform.localRotation.y;
+		//	cp.rotZ = wh.wheelMesh.transform.localRotation.z;
 
-	
+				BuilderPointAttacher bpa= cb.pointList.Find (d => d.gameObj == wh.gameObject);
+				cp.attachID = bpa.attachmentPoint.GetComponent<AttachmentPoint> ().id;
+
 			cp.objID = wh.id;
-	
+		
 			save.carParts.Add (cp);
 		}
-		CarPart cpp = new CarPart ();
-		cpp.posX = playerVehicle.po.transform.localPosition.x;
-		cpp.posY = playerVehicle.po.transform.localPosition.y;
-		cpp.posZ = playerVehicle.po.transform.localPosition.z;
-
-		cpp.rotX = playerVehicle.po.transform.localRotation.x;
-		cpp.rotY = playerVehicle.po.transform.localRotation.y;
-		cpp.rotZ = playerVehicle.po.transform.localRotation.z;
-
-		cpp.objID = playerVehicle.po.id;
-
-		save.carParts.Add (cpp);
+	
 
 
 	//	save.vehicleWheels = playerVehicle.wheels;
@@ -135,22 +154,15 @@ public class GameManager : MonoBehaviour {
 		goa.SetActive (true);
 	}
 	public void enterEditMode(){
-
-		//disable rigidbody & gravity from all applicable items
-		//disable car movement 
-		//disable propulsion movement
-		//Enable object rotation
+		
+		playerVehicle.disableCarPower ();
 
 
 	}
 	public void enterPlayMode(){
-
-		//enable rigidbody & gravity from all attached items
-		//enable car movement
-		//enable propulsion movement
-		//Disable object rotation
-		//Make camera follow car from a distance
-
+		playerVehicle.GetComponent<Rigidbody> ().useGravity = true;
+		playerVehicle.transform.rotation = Quaternion.Euler (0, 0, 0);
+		GetComponent<RaceManager>().startRace();
 	}
 	public void changeScene(string scene){
 
@@ -158,7 +170,22 @@ public class GameManager : MonoBehaviour {
 		Time.timeScale = 1f;
 	}
 
+	public void togglePauseMenu(){
 
+		if (isGamePaused) {
+
+		
+			pausePanel.SetActive (false);
+
+		} else {
+
+		
+			pausePanel.SetActive (true);
+
+
+		}
+
+	}
 
 	public void togglePause(){
 
@@ -166,7 +193,6 @@ public class GameManager : MonoBehaviour {
 
 			isGamePaused = false;
 			Time.timeScale = 1f;
-
 
 		} else {
 
