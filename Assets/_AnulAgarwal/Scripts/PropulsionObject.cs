@@ -22,11 +22,12 @@ public class PropulsionObject : MonoBehaviour {
 
 		rb = GetComponent<Rigidbody> ();
 		rot = transform.rotation;
-
+		transform.localScale = new Vector3 (0.1f, 0.05f, 0.15f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
 		transform.localRotation = rot;
 		rb.AddForce (transform.forward * forceSpeed *-1f,ForceMode.Force);
 	}

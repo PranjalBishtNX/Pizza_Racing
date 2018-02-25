@@ -37,8 +37,8 @@ public class CarBuilder : MonoBehaviour {
 	bool canChanegPropulsion;
 
 	VehicleBody tmp_vehicle;
-	[SerializeField]
-	VehicleBody orig_vehicle;
+//	[SerializeField]
+//	VehicleBody orig_vehicle;
 	public bool canEditVehicle;
 	PropulsionObject tmp_propulsion;
 	PropulsionObject orig_propulsion;
@@ -232,7 +232,7 @@ public	List<BuilderPointAttacher> pointList;
 
 	public void changePropulsion(int change){
 
-		bool canExit;
+		//bool canExit;
 		int currentIndex=tmp_po.FindIndex (d => d.id == vehicle.po.id);
 		int maxRange =tmp_po.Count;
 
@@ -250,7 +250,7 @@ public	List<BuilderPointAttacher> pointList;
 		Destroy (vehicle.po.gameObject);
 
 		vehicle.po =po;
-				canExit = true;
+			//	canExit = true;
 
 		
 	}
@@ -334,11 +334,11 @@ public	List<BuilderPointAttacher> pointList;
 
 	}
 
-	[SerializeField]
-	List<CarPart> cpp;
+//	[SerializeField]
+//	List<CarPart> cpp;
 	public void loadCar(List<CarPart> cp, int vehicleBody, int po){
 		clearOldCar ();
-		cpp = cp;
+//		cpp = cp;
 		if (cp.Count > 0) {
 			//Check if object is null or not
 			if (vehicle.vb != null) {
@@ -423,7 +423,7 @@ public	List<BuilderPointAttacher> pointList;
 	}
 	public void changeBody(int change){
 		initiateBodyChangeSequence ();
-		orig_vehicle = vehicle.vb;
+//		orig_vehicle = vehicle.vb;
 
 	
 		int index=	toggleNumber(glm.vehicleBody.FindIndex (d => d.id == vehicle.vb.id),glm.vehicleBody.Count, change);

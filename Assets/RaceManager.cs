@@ -23,6 +23,10 @@ public class RaceManager : MonoBehaviour {
 	[SerializeField]
 	public Vehicle playerVehicle;
 
+	[SerializeField]
+	public GameObject playBtn;
+
+
 	private float raceTimeStartTime;
 
 	private float raceCountdownStartTime;
@@ -44,6 +48,11 @@ public class RaceManager : MonoBehaviour {
 		raceCountdownStartTime = Time.time;
 		isRaceCountdownActive = true;
 	}
+
+	public void finishRace(){
+
+
+	}
 	public void stopRace(){
 
 		//end the race
@@ -55,6 +64,7 @@ public class RaceManager : MonoBehaviour {
 	public void initiateRace(){
 		isRaceActive = true;
 		playerVehicle.enableCarPower ();
+		playBtn.SetActive (false);
 	}
 	// Update is called once per frame
 	void Update () {
