@@ -34,11 +34,11 @@ public class RaceManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-
+		startRace ();
 		
 	}
 	public void startRace(){
-	
+		GetComponent<GameManager> ().LoadGame ();
 		startCountdown ();
 		raceUIPanel.SetActive (true);
 
@@ -64,7 +64,7 @@ public class RaceManager : MonoBehaviour {
 	public void initiateRace(){
 		isRaceActive = true;
 		playerVehicle.enableCarPower ();
-		playBtn.SetActive (false);
+		//playBtn.SetActive (false);
 	}
 	// Update is called once per frame
 	void Update () {

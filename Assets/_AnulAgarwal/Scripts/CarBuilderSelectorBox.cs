@@ -24,14 +24,14 @@ public class CarBuilderSelectorBox : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButtonDown (0) && obj!=null) {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
 
 				if (hit.collider == GetComponent<Collider> ()) {
 					cb.attachObject (obj);
-					print ("aaa");
+
 
 				}
 			}

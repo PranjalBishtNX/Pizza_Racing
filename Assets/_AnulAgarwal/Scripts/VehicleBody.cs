@@ -17,6 +17,9 @@ public class VehicleBody : MonoBehaviour {
 
 	[SerializeField]
 	public int id;
+
+	[SerializeField]
+	public Rigidbody vehicleRb;
 	// Use this for initialization
 	void Start () {
 		

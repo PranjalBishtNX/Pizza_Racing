@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1065440331080178}
+  m_IsPrefabParent: 1
+--- !u!1 &1065440331080178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4105012009488960}
+  - component: {fileID: 114995266260030340}
+  - component: {fileID: 114445583453398508}
+  - component: {fileID: 114162967301573590}
+  - component: {fileID: 114956833193874488}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4105012009488960
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1065440331080178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.027221203, y: 5.888402, z: 0.033150196}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114162967301573590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1065440331080178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b09bd71d035fd43ac833f86a66cae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carEditorPanel: {fileID: 0}
+  gm: {fileID: 114995266260030340}
+  glm: {fileID: 114445583453398508}
+  vehicle: {fileID: 0}
+  tmpvehicle: {fileID: 0}
+  isInSequence: 0
+  changeCar: {fileID: 0}
+  changePropulsionB: {fileID: 0}
+  changeWheel: {fileID: 0}
+  canEditVehicle: 0
+  tmp_po: []
+  tmp_wheel: []
+  tmpSpawnedObj: []
+  currentAttachmentPoint: {fileID: 0}
+  pointList: []
+  typeNumber: 0
+--- !u!114 &114445583453398508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1065440331080178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178a9bf1512123a45be19a06019e719d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicleBody:
+  - {fileID: 114404847548079320, guid: f10ec517a9b82724c81a392284c1233d, type: 2}
+  - {fileID: 114677853923877380, guid: 92048d35a412c1c4bab8fe2a8f467744, type: 2}
+  propulsionObj:
+  - {fileID: 114740687539538384, guid: 31064885ce27ff84da61e2c243384ccc, type: 2}
+  - {fileID: 114740687539538384, guid: 3718be78b817a8345974e003354dc1bc, type: 2}
+  - {fileID: 114740687539538384, guid: c39ec0d150dafff4887686f7ad79051f, type: 2}
+  - {fileID: 114740687539538384, guid: 503b8474514760e43b813c61f8ee540e, type: 2}
+  wheel:
+  - {fileID: 1966768326753902, guid: a047f69e3896cd14ab2403e4598dc189, type: 2}
+  - {fileID: 1966768326753902, guid: 9c530ff1e1385aa43844787c9110ac60, type: 2}
+  - {fileID: 1966768326753902, guid: 1b1b02c08d5df6246aaaa31a193fe01a, type: 2}
+  - {fileID: 1966768326753902, guid: dfe663aa7de96e4409adb1b706ecea90, type: 2}
+--- !u!114 &114956833193874488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1065440331080178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676448aec37def844bbcffd0a6d5e362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRaceActive: 0
+  raceTime: 0
+  timerCountdown: 3
+  raceCountDownTimer: {fileID: 0}
+  raceUIPanel: {fileID: 0}
+  playerVehicle: {fileID: 0}
+  playBtn: {fileID: 0}
+--- !u!114 &114995266260030340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1065440331080178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc37e0ec611a134cb44fd9f43e81636, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uic: {fileID: 0}
+  listOfPanels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playerVehicle: {fileID: 0}
+  cb: {fileID: 114162967301573590}
+  carBPanel: {fileID: 0}
+  editCam: {fileID: 0}
+  mainCam: {fileID: 0}
+  pausePanel: {fileID: 0}

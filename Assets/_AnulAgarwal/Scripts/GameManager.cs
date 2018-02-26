@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField]
 	GameObject pausePanel;
+
+
 	// Use this for initialization
 	void Start () {
 	AttachmentPoint[] ap = FindObjectsOfType<AttachmentPoint> ();
@@ -42,44 +44,46 @@ public class GameManager : MonoBehaviour {
 		isGamePaused = false;
 		//LoadGame ();
 	}
+
+	public void switchCam(){
+
+		if (editCam.enabled) {
+			editCam.gameObject.SetActive(false);
+			mainCam.gameObject.SetActive(true);
+		} else {
+			editCam.gameObject.SetActive(true);
+			mainCam.gameObject.SetActive(false);
+		}
+	}
 	private Save createSaveGameObject(){
 
 		Save save = new Save ();
 		if(playerVehicle.vb!=null)
 		save.vehicleChasis = playerVehicle.vb.id;
-		if (playerVehicle.po != null) {
-			save.vehiclePropulsion = playerVehicle.po.id;
+		if (playerVehicle.propObj.Count>0) {
 
-			CarPart cpp = new CarPart ();
-		//	cpp.posX = playerVehicle.po.transform.localPosition.x;
-		//	cpp.posY = playerVehicle.po.transform.localPosition.y;
-		//	cpp.posZ = playerVehicle.po.transform.localPosition.z;
 
-		//	cpp.rotX = playerVehicle.po.transform.localRotation.x;
-		//	cpp.rotY = playerVehicle.po.transform.localRotation.y;
-//			cpp.rotZ = playerVehicle.po.transform.localRotation.z;
+		
+		
+			foreach (PropulsionObject po in playerVehicle.propObj) {
 
-			cpp.objID = playerVehicle.po.id;
-			BuilderPointAttacher bpa= cb.pointList.Find (d => d.gameObj == playerVehicle.po.gameObject);
-			print ( bpa.attachmentPoint.GetComponent<AttachmentPoint> ().id);
-			cpp.attachID = bpa.attachmentPoint.GetComponent<AttachmentPoint> ().id;
-			save.carParts.Add (cpp);
+				//save.propO = playerVehicle.propObj;
+				save.vehiclePropulsion =po.id;
 
+				CarPart cpp = new CarPart ();
+
+
+				cpp.objID = po.id;
+				BuilderPointAttacher bpa= cb.pointList.Find (d => d.gameObj ==po.gameObject);
+
+				cpp.attachID = bpa.attachmentPoint.GetComponent<AttachmentPoint> ().id;
+				save.carParts.Add (cpp);
+			}
 		}
 		if(playerVehicle.wheels.Count>0)
 		foreach (Wheel wh in playerVehicle.wheels) {
 			CarPart cp = new CarPart ();
-		//	cp.posX = wh.wheelMesh.transform.parent.localPosition.x;
-		//	cp.posY = wh.wheelMesh.transform.parent.localPosition.y;
-		//	cp.posZ = wh.wheelMesh.transform.parent.localPosition.z;
-
-		//	print (cp.posX);
-		//	print (cp.posY);
-		//	print (cp.posZ);
-
-		//	cp.rotX = wh.wheelMesh.transform.localRotation.x;
-		//	cp.rotY = wh.wheelMesh.transform.localRotation.y;
-		//	cp.rotZ = wh.wheelMesh.transform.localRotation.z;
+	
 
 				BuilderPointAttacher bpa= cb.pointList.Find (d => d.gameObj == wh.gameObject);
 				cp.attachID = bpa.attachmentPoint.GetComponent<AttachmentPoint> ().id;
@@ -94,13 +98,13 @@ public class GameManager : MonoBehaviour {
 	//	save.vehicleWheels = playerVehicle.wheels;
 		return save;
 	}
-	public void displayBuildingOptions(GameObject attachP){
+	public void displayBuildingOptions(GameObject attachP, int spawnIndex){
 
 
 		togglePause ();
 		carBPanel.SetActive (true);
 		cb.setCurrentAttachmentPoint (attachP);
-
+		cb.displayPart (spawnIndex);
 	}
 
 
@@ -116,7 +120,7 @@ public class GameManager : MonoBehaviour {
 			fil.Close ();
 		
 		//	cb.replaceParts (save.vehicleChasis, save.vehiclePropulsion);
-			cb.loadCar(save.carParts, save.vehicleChasis, save.vehiclePropulsion);
+			cb.loadCar(save.carParts, save.vehicleChasis, save.vehiclePropulsion,save.propO);
 			print ("Loaded: Game");
 
 		}
@@ -160,9 +164,10 @@ public class GameManager : MonoBehaviour {
 
 	}
 	public void enterPlayMode(){
-		playerVehicle.GetComponent<Rigidbody> ().useGravity = true;
-		playerVehicle.transform.rotation = Quaternion.Euler (0, 0, 0);
-		GetComponent<RaceManager>().startRace();
+		//playerVehicle.GetComponentInChildren<Rigidbody> ().useGravity = true;
+		Application.LoadLevel("Level");
+
+
 	}
 	public void changeScene(string scene){
 

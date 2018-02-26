@@ -13,6 +13,10 @@ public class Engine : MonoBehaviour {
 	[SerializeField]
 	public float maxSteering;
 
+	public bool canMove;
+
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -22,52 +26,71 @@ public class Engine : MonoBehaviour {
 	void Update () {
 
 
-		moveCar ();
 	}
 
-	public void VisualizeWheel(Wheel whee)
+	public void removeWheel(Wheel whe){
+
+		wheelInfo.Remove (whe);
+
+		GetComponent<Dot_Truck_Controller> ().wheelInfo.Remove (whe);
+	}
+	void FixedUpdate(){
+		if (canMove) {
+
+			moveCar ();
+		} else {
+
+
+		}
+
+	}
+	public void enableCarToMove(int engineNo ){
+
+		print (engineNo);
+		canMove = true;
+
+		maxSpeed = maxSpeed * engineNo;
+		foreach (Wheel truck_Info in wheelInfo)
+		{
+			Dot_Truck dc = new Dot_Truck ();
+			dc.wheel = truck_Info.wheel;
+			dc.wheelMesh = truck_Info.wheelMesh;
+			dc.steering = truck_Info.steering;
+			dc.motor = truck_Info.motor;
+
+			GetComponent<Dot_Truck_Controller> ().truck_Infos.Add (dc);
+
+		}
+		GetComponent<Dot_Truck_Controller> ().wheelInfo = wheelInfo;
+
+		//GetComponent<Dot_Truck_Controller> ().maxMotorTorque = maxSpeed * engineNo;
+	
+
+	}
+
+	public float maxMotorTorque;
+	public float maxSteeringAngle;
+
+
+
+	public void VisualizeWheel(Wheel wheelPair)
 	{
 		Quaternion rot;
 		Vector3 pos;
-		whee.wheel.GetWorldPose ( out pos, out rot);
-		whee.wheelMesh.transform.position = pos;
-		whee.wheelMesh.transform.rotation = rot;
+		wheelPair.wheel.GetWorldPose ( out pos, out rot);
+		wheelPair.wheelMesh.transform.position = pos;
+		wheelPair.wheelMesh.transform.rotation = rot;
+		/*wheelPair.rightWheel.GetWorldPose ( out pos, out rot);
+		wheelPair.rightWheelMesh.transform.position = pos;
+		wheelPair.rightWheelMesh.transform.rotation = rot;*/
+	}
+	public void moveCar(){
+
+
+
+
 
 	}
 
-	void moveCar(){
 
-		float speed =  maxSpeed * Input.GetAxis("Vertical");
-		float steering = maxSteering * Input.GetAxis("Horizontal");
-		float brakeTorque = Mathf.Abs(Input.GetAxis("Jump"));
-		if (brakeTorque > 0.001) {
-			brakeTorque = maxSpeed;
-			speed = 0;
-		} else {
-			brakeTorque = 0;
-		}
-
-		foreach (Wheel whee in wheelInfo) {
-			if (whee == null) {
-				wheelInfo.Remove (whee);
-				break;
-			}
-			if (whee.steering == true) {
-				//truck_Info.leftWheel.steerAngle = truck_Info.rightWheel.steerAngle = ((whee.reverseTurn)?-1:1)*steering;
-				whee.wheel.steerAngle= ((whee.reverseTurn)?-1:1)*steering;
-			}
-
-			if (whee.motor == true)
-			{
-				whee.wheel.motorTorque = speed;
-				//truck_Info.rightWheel.motorTorque = motor;
-			}
-
-			whee.wheel.brakeTorque = brakeTorque;
-
-			//	whee.wheel.brakeTorque = brakeTorque;
-			VisualizeWheel(whee);
-
-		}
-	}
 }

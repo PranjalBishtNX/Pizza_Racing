@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4917096956537052}
   - component: {fileID: 114740687539538384}
   - component: {fileID: 54866017104435342}
-  - component: {fileID: 114202486331159582}
   m_Layer: 0
   m_Name: Blue Propulsion
   m_TagString: Untagged
@@ -130,7 +129,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 118
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &65196642441677938
 BoxCollider:
@@ -144,18 +143,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 17.8525, y: 17.5813, z: 32.1595}
   m_Center: {x: 0.18585348, y: 8.59925, z: -3.5171504}
---- !u!114 &114202486331159582
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1139148224346326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ff9a0f3fba09264a8293c0b4e40ffec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMat: {fileID: 0}
 --- !u!114 &114740687539538384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb5e79eb356add42b764e1d84d7b156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceSpeed: 5000
+  forceSpeed: 7000
   id: 5
   level: 1
 --- !u!198 &198280575647077494

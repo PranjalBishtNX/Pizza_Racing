@@ -17,7 +17,7 @@ public class MouseRotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float rotX = Input.GetAxis ("Mouse X") * sensX * 10;
-		float rotY = Input.GetAxis ("Mouse Y") * sensY * 10;
+		float rotY = Input.GetAxis ("Mouse Y") * sensY * -10;
 
 		if (Input.GetMouseButton (0)) {
 			transform.Rotate (cam.up, -Mathf.Deg2Rad * rotX, Space.World);

@@ -26,6 +26,11 @@ public class Vehicle : MonoBehaviour {
 	public List<Attacher> attachPoints;
 
 
+	[SerializeField]
+	public List<PropulsionObject> propObj;
+
+	public int numberOfEngine;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -56,25 +61,25 @@ public class Vehicle : MonoBehaviour {
 		//Make camera follow car from a distance
 
 		//Enable rigidbody
-		//	playerVehicle.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-
+		GetComponentInChildren<Rigidbody>().useGravity = true;
+		transform.rotation = Quaternion.Euler (0, 90, 0);
 		//Enable car movement
 		GetComponent<Engine> ().enabled = true;
+		//this is for power through wheels in case propulsion doesnt work
+		GetComponent<Engine> ().enableCarToMove (numberOfEngine);
+
 
 		//Enable engine power
-		if(GetComponentInChildren<PropulsionObject>()!= null){
+	/*	if(GetComponentInChildren<PropulsionObject>()!= null){
 			GetComponentInChildren<PropulsionObject> ().enabled = true;
 			GetComponentInChildren<PropulsionObject> ().GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
 			GetComponentInChildren<PropulsionObject> ().GetComponent<Rigidbody> ().useGravity = true;
 
-		}
+		}*/
 		//Disable object rotation
 		GetComponent<MouseRotate> ().enabled = false;
 		disableCarEditing ();
-		//Change Cams
-		//	editCam.enabled = false;
-		//	mainCam.enabled = true;
-
+//		gm.switchCam ();
 	}
 
 	public void disableCarPower(){
@@ -99,8 +104,7 @@ public class Vehicle : MonoBehaviour {
 		GetComponent<MouseRotate> ().enabled = true;
 		enableCarEditing ();
 
-		//	editCam.enabled = true;
-		//	mainCam.enabled = false;
+		gm.switchCam ();
 	}
 	// Update is called once per frame
 	void Update () {
