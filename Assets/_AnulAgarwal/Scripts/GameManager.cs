@@ -165,6 +165,8 @@ public class GameManager : MonoBehaviour {
 	}
 	public void enterPlayMode(){
 		//playerVehicle.GetComponentInChildren<Rigidbody> ().useGravity = true;
+		SaveGame ();
+
 		Application.LoadLevel("Level");
 
 
