@@ -29,4 +29,15 @@ public class VehicleBody : MonoBehaviour {
 	void Update () {
 		
 	}
+	void OnTriggerEnter(Collider col){
+
+		if (col.gameObject.layer == 8) {
+
+
+			GetComponentInParent<Vehicle> ().doOnPepperoniEnter (col);
+
+		}
+
+
+	}
 }

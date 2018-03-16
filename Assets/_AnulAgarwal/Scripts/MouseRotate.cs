@@ -20,6 +20,7 @@ public class MouseRotate : MonoBehaviour {
 		float rotY = Input.GetAxis ("Mouse Y") * sensY * -10;
 
 		if (Input.GetMouseButton (0)) {
+			
 			transform.Rotate (cam.up, -Mathf.Deg2Rad * rotX, Space.World);
 			transform.Rotate (cam.right, -Mathf.Deg2Rad * rotY, Space.World);	
 

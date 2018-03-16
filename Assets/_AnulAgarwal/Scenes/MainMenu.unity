@@ -157,6 +157,10 @@ MonoBehaviour:
   listOfPanels: []
   playerVehicle: {fileID: 0}
   cb: {fileID: 0}
+  carBPanel: {fileID: 0}
+  editCam: {fileID: 0}
+  mainCam: {fileID: 0}
+  pausePanel: {fileID: 0}
 --- !u!1 &146017424
 GameObject:
   m_ObjectHideFlags: 0

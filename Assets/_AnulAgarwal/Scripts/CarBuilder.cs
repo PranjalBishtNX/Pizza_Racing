@@ -372,43 +372,57 @@ public	List<BuilderPointAttacher> pointList;
 			if (vehicle.po != null) {
 				Destroy (vehicle.po.gameObject);
 			} 
+			print (cp.Count);
 			foreach (CarPart cpa in cp) {
+
+				GameObject pointAttached= vehicle.attachmentPoints.Find(d=> d.GetComponent<AttachmentPoint>().id==cpa.attachID);
+
+				BuilderPointAttacher bp = new BuilderPointAttacher ();
+				bp.attachmentPoint = pointAttached;
+
+				if (cpa.type == 1) {
+
+					GameObject goa = Instantiate (glm.wheel.Find(d=> d.GetComponent<Wheel>().id == cpa.objID), pointAttached.transform.position, pointAttached.transform.rotation);
+					goa.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody> ().transform);
+					goa.transform.localScale = new Vector3 (0.03f, 0.03f, 0.03f);
+					vehicle.GetComponent<Engine>().wheelInfo.Add(goa.GetComponent<Wheel> ());
+					vehicle.wheels.Add (goa.GetComponent<Wheel> ());
+
+					bp.gameObj = goa;
+
+				} else if (cpa.type == 2) {
+
+
+					GameObject pointAttached1= vehicle.attachmentPoints.Find(d=> d.GetComponent<AttachmentPoint>().id==cpa.attachID);
+
+					GameObject go= Instantiate (glm.propulsionObj.Find (d => d.id == cpa.objID).gameObject, pointAttached.transform.position, pointAttached.transform.rotation);
+					go.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody> ().transform);
+					//go.transform.localPosition =Vector3.zero;
+
+					vehicle.propObj.Add(go.GetComponent<PropulsionObject> ());
+
+
+				
+					bp.gameObj = go;
+				}
+				pointList.Add (bp);
+
+
 				foreach (GameObject go in glm.wheel) {
 					if (go.GetComponent<Wheel> ().id == cpa.objID) {
-						GameObject pointAttached= vehicle.attachmentPoints.Find(d=> d.GetComponent<AttachmentPoint>().id==cp.Find (da => da.objID == cpa.objID).attachID);
+						//GameObject pointAttached= vehicle.attachmentPoints.Find(d=> d.GetComponent<AttachmentPoint>().id==cp.Find (da => da.objID == cpa.objID).attachID);
 					
-						GameObject goa = Instantiate (go, pointAttached.transform.position, pointAttached.transform.rotation);
+						//GameObject goa = Instantiate (go, pointAttached.transform.position, pointAttached.transform.rotation);
 
-						goa.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody> ().transform);
-						goa.transform.localScale = new Vector3 (0.03f, 0.03f, 0.03f);
-						vehicle.GetComponent<Engine>().wheelInfo.Add(goa.GetComponent<Wheel> ());
-						vehicle.wheels.Add (goa.GetComponent<Wheel> ());
-			
-						BuilderPointAttacher bp = new BuilderPointAttacher ();
-						bp.attachmentPoint = pointAttached;
-						bp.gameObj = goa;
-						pointList.Add (bp);
-						break;
+
+
 					}
 
 				}
 				foreach (PropulsionObject popa in glm.propulsionObj) {
 					if (popa.id == cpa.objID) {
-
-						GameObject pointAttached= vehicle.attachmentPoints.Find(d=> d.GetComponent<AttachmentPoint>().id==cpa.attachID);
-
-						GameObject go= Instantiate (glm.propulsionObj.Find (d => d.id == popa.id).gameObject, pointAttached.transform.position, pointAttached.transform.rotation);
-						go.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody> ().transform);
-						//go.transform.localPosition =Vector3.zero;
-
-						vehicle.propObj.Add(go.GetComponent<PropulsionObject> ());
-
+						
 					
-						BuilderPointAttacher bp = new BuilderPointAttacher ();
-						bp.attachmentPoint = pointAttached;
-						bp.gameObj = go;
-						pointList.Add (bp);
-						break;
 					}
 
 

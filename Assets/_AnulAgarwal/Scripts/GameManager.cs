@@ -5,6 +5,8 @@ using System.Linq;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.UI;
+
 public class GameManager : MonoBehaviour {
 
 	bool isGamePaused;
@@ -32,7 +34,14 @@ public class GameManager : MonoBehaviour {
 	[SerializeField]
 	GameObject pausePanel;
 
+	[SerializeField]
+	Slider powerSlider;
 
+	[SerializeField]
+	float maxPowerBarValue;
+
+	[SerializeField]
+	public bool canDoUltimate;
 	// Use this for initialization
 	void Start () {
 	AttachmentPoint[] ap = FindObjectsOfType<AttachmentPoint> ();
@@ -42,9 +51,30 @@ public class GameManager : MonoBehaviour {
 			pa.setGameManager(this);
 		}
 		isGamePaused = false;
+		powerSlider.maxValue = maxPowerBarValue;
+		powerSlider.value = 0f;
 		//LoadGame ();
 	}
+	public void increasePowerBar(float value){
 
+		powerSlider.value += value;
+		checkForPower ();
+	}
+	void enableUltimate(){
+
+		canDoUltimate = true;
+
+	}
+	void checkForPower(){
+		if (powerSlider.value >= maxPowerBarValue) {
+
+			enableUltimate ();
+			powerSlider.value = 0f;
+
+		}
+
+
+	}
 	public void switchCam(){
 
 		if (editCam.enabled) {
@@ -71,7 +101,7 @@ public class GameManager : MonoBehaviour {
 				save.vehiclePropulsion =po.id;
 
 				CarPart cpp = new CarPart ();
-
+				cpp.type = 2;
 
 				cpp.objID = po.id;
 				BuilderPointAttacher bpa= cb.pointList.Find (d => d.gameObj ==po.gameObject);
@@ -87,6 +117,7 @@ public class GameManager : MonoBehaviour {
 
 				BuilderPointAttacher bpa= cb.pointList.Find (d => d.gameObj == wh.gameObject);
 				cp.attachID = bpa.attachmentPoint.GetComponent<AttachmentPoint> ().id;
+				cp.type = 1;
 
 			cp.objID = wh.id;
 		
@@ -126,11 +157,42 @@ public class GameManager : MonoBehaviour {
 		}
 
 	}
+
+
+	public void LoadGame(int slotNumber){
+
+
+		if(File.Exists(Application.persistentDataPath+"/gamesave" + slotNumber.ToString() + ".save")){
+
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream fil = File.Open (Application.persistentDataPath + "/gamesave" + slotNumber.ToString() + ".save", FileMode.Open);
+			Save save = (Save)bf.Deserialize (fil);
+			fil.Close ();
+
+			//	cb.replaceParts (save.vehicleChasis, save.vehiclePropulsion);
+			cb.loadCar(save.carParts, save.vehicleChasis, save.vehiclePropulsion,save.propO);
+			print ("Loaded: Game");
+
+		}
+
+	}
+
 	public void SaveGame(){
 
 		Save save = createSaveGameObject ();
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create (Application.persistentDataPath + "/gamesave.save");
+		bf.Serialize (file, save);
+		file.Close ();
+		print ("Saved: Game");
+	}
+
+
+	public void SaveGame(int slotNumber){
+
+		Save save = createSaveGameObject ();
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Create (Application.persistentDataPath +"/gamesave" + slotNumber.ToString() + ".save");
 		bf.Serialize (file, save);
 		file.Close ();
 		print ("Saved: Game");
@@ -173,7 +235,7 @@ public class GameManager : MonoBehaviour {
 	}
 	public void changeScene(string scene){
 
-
+		Application.LoadLevel (scene);
 		Time.timeScale = 1f;
 	}
 
@@ -209,16 +271,33 @@ public class GameManager : MonoBehaviour {
 		}
 
 	}
+	void resetPowerBar(){
+
+		powerSlider.value = 0f;
+
+	}
+
 
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 
 			SaveGame ();
+
 		}
 		if (Input.GetKeyDown (KeyCode.L)) {
 
 			LoadGame ();
+
+		}
+		if (Input.GetKeyDown (KeyCode.Space)) {
+
+			if (canDoUltimate) {
+				
+				canDoUltimate = false;
+				resetPowerBar ();
+			}
+
 		}
 	}
 }

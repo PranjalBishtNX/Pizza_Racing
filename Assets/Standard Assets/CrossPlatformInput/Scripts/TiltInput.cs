@@ -68,6 +68,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                         angle = Mathf.Atan2(Input.acceleration.z, -Input.acceleration.y)*Mathf.Rad2Deg +
                                 centreAngleOffset;
                         break;
+
                 }
             }
 

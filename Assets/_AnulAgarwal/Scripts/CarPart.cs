@@ -4,6 +4,8 @@ using UnityEngine;
 [System.Serializable]
 
 public class CarPart{
+
+
 	public float objID;
 	public float posX;
 	public float posY;
@@ -15,5 +17,7 @@ public class CarPart{
 	public float scaleY;
 	public float scaleZ;
 	public float attachID;
+	public int type;
+
 
 }

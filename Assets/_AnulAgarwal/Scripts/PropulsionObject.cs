@@ -30,14 +30,14 @@ public class PropulsionObject : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 	//	rot = transform.rotation;
 	//	transform.localScale = new Vector3 (0.1f, 0.2f, 0.1f);
-		sPos= transform.position;
-		sPos.x -= 1f;
+		//sPos= transform.position;
+		//sPos.x -= 1f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//GetComponent<Rigidbody> ().AddForceAtPosition (transform.forward * forceSpeed ,pos.position);
-		//transform.localRotation = rot;
+		GetComponentInParent<Rigidbody> ().AddForceAtPosition (GetComponentInParent<Rigidbody> ().transform.forward* forceSpeed ,transform.position);
+	//	transform.localRotation = rot;
 		//rb.AddForce (transform.forward * forceSpeed *-1f,ForceMode.Force);
 	}
 }

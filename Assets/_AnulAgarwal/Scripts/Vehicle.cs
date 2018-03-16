@@ -25,7 +25,6 @@ public class Vehicle : MonoBehaviour {
 	[SerializeField]
 	public List<Attacher> attachPoints;
 
-
 	[SerializeField]
 	public List<PropulsionObject> propObj;
 
@@ -35,8 +34,7 @@ public class Vehicle : MonoBehaviour {
 	void Start () {
 		
 	}
-
-
+		
 	public void enableCarEditing(){
 
 		foreach (GameObject go in attachmentPoints) {
@@ -70,12 +68,18 @@ public class Vehicle : MonoBehaviour {
 
 
 		//Enable engine power
-	/*	if(GetComponentInChildren<PropulsionObject>()!= null){
-			GetComponentInChildren<PropulsionObject> ().enabled = true;
-			GetComponentInChildren<PropulsionObject> ().GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
-			GetComponentInChildren<PropulsionObject> ().GetComponent<Rigidbody> ().useGravity = true;
 
-		}*/
+
+		foreach (PropulsionObject pop in GetComponentInChildren<VehicleBody>().GetComponentsInChildren<PropulsionObject>()) {
+
+			if(pop== null){
+				pop.enabled = true;
+				pop.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
+			pop.GetComponent<Rigidbody> ().useGravity = true;
+
+			}
+
+		}
 		//Disable object rotation
 		GetComponent<MouseRotate> ().enabled = false;
 		disableCarEditing ();
@@ -109,5 +113,18 @@ public class Vehicle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+
+	public void doOnPepperoniEnter(Collider col){
+		gm.increasePowerBar(col.gameObject.GetComponent<Pepperoni>().ultimatePowerValue);
+		Destroy(col.gameObject);
+
+
+	}
+	void increasePowerBar(int value){
+
+
+
 	}
 }
