@@ -149,7 +149,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1139148224346326}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bb5e79eb356add42b764e1d84d7b156, type: 3}
   m_Name: 
@@ -157,6 +157,7 @@ MonoBehaviour:
   forceSpeed: 7000
   id: 5
   level: 1
+  pos: {fileID: 0}
 --- !u!198 &198280575647077494
 ParticleSystem:
   m_ObjectHideFlags: 1

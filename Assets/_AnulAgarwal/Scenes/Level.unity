@@ -2530,50 +2530,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114489265468085770, guid: 75a55e7db92aebc40b3e15376a4992c0,
-        type: 2}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 1682254885}
-    - target: {fileID: 114489265468085770, guid: 75a55e7db92aebc40b3e15376a4992c0,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1627182416285572, guid: 75a55e7db92aebc40b3e15376a4992c0, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114510091431433308, guid: 75a55e7db92aebc40b3e15376a4992c0,
-        type: 2}
-      propertyPath: gm
-      value: 
-      objectReference: {fileID: 2034154661}
-    - target: {fileID: 114529376176299900, guid: 75a55e7db92aebc40b3e15376a4992c0,
-        type: 2}
-      propertyPath: maxMotorTorque
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 65979886481226940, guid: 75a55e7db92aebc40b3e15376a4992c0,
-        type: 2}
-      propertyPath: m_Size.z
-      value: 1.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 65979886481226940, guid: 75a55e7db92aebc40b3e15376a4992c0,
-        type: 2}
-      propertyPath: m_Center.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65979886481226940, guid: 75a55e7db92aebc40b3e15376a4992c0,
-        type: 2}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65979886481226940, guid: 75a55e7db92aebc40b3e15376a4992c0,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 0.97
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75a55e7db92aebc40b3e15376a4992c0, type: 2}
   m_IsPrefabParent: 0
