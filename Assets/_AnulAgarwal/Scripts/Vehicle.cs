@@ -28,7 +28,23 @@ public class Vehicle : MonoBehaviour {
 	[SerializeField]
 	public List<PropulsionObject> propObj;
 
+
+	public Chasis chasis;
+
 	public int numberOfEngine;
+
+	public enum Character {Hopper, Booster, Heavy
+
+	};
+
+	public enum States
+	{
+		Stopped,
+		Moving,
+		Drifting,
+		Oily}
+
+	;
 
 	// Use this for initialization
 	void Start () {
@@ -114,7 +130,25 @@ public class Vehicle : MonoBehaviour {
 	void Update () {
 		
 	}
+	public void doBoosterPizzaUltimate(){
+		//increase speed
+		//2x current speed for 3s
 
+	}
+
+
+	public void doHopperPizzaUltimate(){
+		//5cm vertical jumjp
+		//Airborne for 3s
+
+	}
+
+	public void doHeavyPizzaUltimate(){
+		// Invulnerable for 3 sec
+		//Knocks over objects
+		
+
+	}
 
 	public void doOnPepperoniEnter(Collider col){
 		gm.increasePowerBar(col.gameObject.GetComponent<Pepperoni>().ultimatePowerValue);
