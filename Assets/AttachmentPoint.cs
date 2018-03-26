@@ -24,10 +24,10 @@ public class AttachmentPoint : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
-//				print (hit.collider.tag);
+				print (hit.collider.gameObject.layer);
 
 				if (hit.collider==GetComponent<Collider>()) {
-				//	print ("hitt");
+					print ("hitt");
 					//BUGGGG
 					gm.displayBuildingOptions (this.gameObject,spawnIndex);
 

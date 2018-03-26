@@ -20,6 +20,11 @@ public class VehicleBody : MonoBehaviour {
 
 	[SerializeField]
 	public Rigidbody vehicleRb;
+
+	[SerializeField]
+//public	UnityStandardAssets.Vehicles.Car.CustomCarController cc;
+	public	UnityStandardAssets.Vehicles.Car.CarController cca;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -28,6 +33,12 @@ public class VehicleBody : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void callController(){
+
+		cca.setInitialization ();
+
 	}
 	void OnTriggerEnter(Collider col){
 

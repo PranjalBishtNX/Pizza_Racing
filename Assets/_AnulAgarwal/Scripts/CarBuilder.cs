@@ -60,6 +60,16 @@ public class CarBuilder : MonoBehaviour {
 public	List<BuilderPointAttacher> pointList;
 
 	public int typeNumber;
+
+
+	[SerializeField]
+	public GameObject statBox;
+
+	[SerializeField]
+	public Text stat1;
+
+	[SerializeField]
+	public Text stat2;
 	// Use this for initialization
 	void Start () {
 		
@@ -111,6 +121,25 @@ public	List<BuilderPointAttacher> pointList;
 
 		}
 		pointList.Clear ();
+	}
+
+
+
+	void displayStat(string statM1, string statM2){
+
+		statBox.SetActive (true);
+		stat1.text = statM1;
+
+		stat2.text = statM2;
+
+
+
+	}
+
+	void closeStat(){
+
+		statBox.SetActive (false);
+
 	}
 	public void attachObject(GameObject objec){
 		//attach object from temporary spawned to the attachment point
@@ -168,11 +197,13 @@ public	List<BuilderPointAttacher> pointList;
 			vehicle.po = obj.GetComponent<PropulsionObject> ();
 			vehicle.numberOfEngine += 1;
 			vehicle.propObj.Add (obj.GetComponent<PropulsionObject> ());
+			displayStat ("Speed: " + obj.GetComponent<PropulsionObject> ().forceSpeed,"Force: " + obj.GetComponent<PropulsionObject> ().weight);
 
 		} else {
 			
 			vehicle.GetComponent<Engine> ().wheelInfo.Add (obj.GetComponent<Wheel>());
 			vehicle.wheels.Add (obj.GetComponent<Wheel>());
+			displayStat ("Speed: " + obj.GetComponent<Wheel> ().speed,"Force: " + obj.GetComponent<Wheel> ().turningRadius);
 
 		}
 
@@ -384,9 +415,13 @@ public	List<BuilderPointAttacher> pointList;
 
 					GameObject goa = Instantiate (glm.wheel.Find(d=> d.GetComponent<Wheel>().id == cpa.objID), pointAttached.transform.position, pointAttached.transform.rotation);
 					goa.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody> ().transform);
-					goa.transform.localScale = new Vector3 (0.03f, 0.03f, 0.03f);
-					vehicle.GetComponent<Engine>().wheelInfo.Add(goa.GetComponent<Wheel> ());
+					goa.transform.localScale = new Vector3 (0.05f, 0.05f, 0.05f);
+//					vehicle.GetComponent<Engine>().wheelInfo.Add(goa.GetComponent<Wheel> ());
 					vehicle.wheels.Add (goa.GetComponent<Wheel> ());
+					vehicle.vb.cca.m_WheelColliders.Add (goa.GetComponentInChildren<WheelCollider>());
+					vehicle.vb.cca.m_WheelMeshes.Add (goa.GetComponentInChildren<MeshRenderer>().gameObject);
+					//vehicle.vb.cca.m_WheelMeshes.Add (goa.GetComponentInChildren<GameObject>());
+
 
 					bp.gameObj = goa;
 
@@ -408,26 +443,7 @@ public	List<BuilderPointAttacher> pointList;
 				pointList.Add (bp);
 
 
-				foreach (GameObject go in glm.wheel) {
-					if (go.GetComponent<Wheel> ().id == cpa.objID) {
-						//GameObject pointAttached= vehicle.attachmentPoints.Find(d=> d.GetComponent<AttachmentPoint>().id==cp.Find (da => da.objID == cpa.objID).attachID);
-					
-						//GameObject goa = Instantiate (go, pointAttached.transform.position, pointAttached.transform.rotation);
 
-
-
-					}
-
-				}
-				foreach (PropulsionObject popa in glm.propulsionObj) {
-					if (popa.id == cpa.objID) {
-						
-					
-					}
-
-
-				}
-	
 		
 				//	go.transform.localPosition = new Vector3 (cpa.posX, cpa.posY, cpa.posZ);
 

@@ -11,4 +11,6 @@ public class Wheel: MonoBehaviour {
 	public bool steering;
 	public bool reverseTurn; 
 	public int id;
+	public float speed;
+	public float turningRadius;
 }

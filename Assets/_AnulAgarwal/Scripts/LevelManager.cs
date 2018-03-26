@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
 
+	[SerializeField]
+	List<LevelButton> levelList;
 	// Use this for initialization
 	void Start () {
 		

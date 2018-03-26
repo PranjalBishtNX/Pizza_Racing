@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField]
 	public bool canDoUltimate;
+
+
+	public Vehicle.Character currentCharacter;
+
+
 	// Use this for initialization
 	void Start () {
 	AttachmentPoint[] ap = FindObjectsOfType<AttachmentPoint> ();
@@ -178,17 +183,22 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void SaveGame(){
-
+		//Have to save current player character
+		// & save level progression
 		Save save = createSaveGameObject ();
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create (Application.persistentDataPath + "/gamesave.save");
 		bf.Serialize (file, save);
 		file.Close ();
 		print ("Saved: Game");
+
 	}
 
 
 	public void SaveGame(int slotNumber){
+		//Have to save current player character
+		// & save level progression
+
 
 		Save save = createSaveGameObject ();
 		BinaryFormatter bf = new BinaryFormatter ();
@@ -277,7 +287,25 @@ public class GameManager : MonoBehaviour {
 
 	}
 
+	public void doUltimate(){
 
+		if (canDoUltimate) {
+			if (currentCharacter == Vehicle.Character.Booster) {
+				playerVehicle.doBoosterPizzaUltimate ();
+
+			} else if (currentCharacter == Vehicle.Character.Heavy) {
+
+				playerVehicle.doHeavyPizzaUltimate ();
+
+			} else if (currentCharacter == Vehicle.Character.Hopper) {
+
+
+				playerVehicle.doHopperPizzaUltimate ();
+			}
+			canDoUltimate = false;
+			resetPowerBar ();
+		}
+	}
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
@@ -292,11 +320,7 @@ public class GameManager : MonoBehaviour {
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
 
-			if (canDoUltimate) {
-				
-				canDoUltimate = false;
-				resetPowerBar ();
-			}
+			doUltimate ();
 
 		}
 	}

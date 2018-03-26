@@ -21,7 +21,7 @@ public class PropulsionObject : MonoBehaviour {
 	[SerializeField]
 	Transform pos;
 
-
+	public float weight;
 	Vector3 sPos;
 
 	// Use this for initialization
@@ -36,7 +36,7 @@ public class PropulsionObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponentInParent<Rigidbody> ().AddForceAtPosition (GetComponentInParent<Rigidbody> ().transform.forward* forceSpeed ,transform.position);
+		GetComponentInParent<Rigidbody> ().AddForceAtPosition (GetComponentInParent<Rigidbody> ().transform.forward* forceSpeed ,transform.position,ForceMode.Impulse);
 	//	transform.localRotation = rot;
 		//rb.AddForce (transform.forward * forceSpeed *-1f,ForceMode.Force);
 	}

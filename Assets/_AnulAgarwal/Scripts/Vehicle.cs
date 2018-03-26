@@ -28,7 +28,23 @@ public class Vehicle : MonoBehaviour {
 	[SerializeField]
 	public List<PropulsionObject> propObj;
 
+
+	public Chasis chasis;
+
 	public int numberOfEngine;
+
+	public enum Character {Hopper, Booster, Heavy
+
+	};
+
+	public enum States
+	{
+		Stopped,
+		Moving,
+		Drifting,
+		Oily}
+
+	;
 
 	// Use this for initialization
 	void Start () {
@@ -62,9 +78,9 @@ public class Vehicle : MonoBehaviour {
 		GetComponentInChildren<Rigidbody>().useGravity = true;
 		transform.rotation = Quaternion.Euler (0, 90, 0);
 		//Enable car movement
-		GetComponent<Engine> ().enabled = true;
+	//	GetComponent<Engine> ().enabled = true;
 		//this is for power through wheels in case propulsion doesnt work
-		GetComponent<Engine> ().enableCarToMove (numberOfEngine);
+		//GetComponent<Engine> ().enableCarToMove (numberOfEngine);
 
 
 		//Enable engine power
@@ -83,9 +99,15 @@ public class Vehicle : MonoBehaviour {
 		//Disable object rotation
 		GetComponent<MouseRotate> ().enabled = false;
 		disableCarEditing ();
+		print ("initialized");
+		vb.callController ();
 //		gm.switchCam ();
 	}
+	public void changeCarSpeedForThisMuchTime(float speedDecreasePercentage, float duration){
 
+
+
+	}
 	public void disableCarPower(){
 
 		//disable rigidbody & gravity from all applicable items
@@ -114,7 +136,25 @@ public class Vehicle : MonoBehaviour {
 	void Update () {
 		
 	}
+	public void doBoosterPizzaUltimate(){
+		//increase speed
+		//2x current speed for 3s
 
+	}
+
+
+	public void doHopperPizzaUltimate(){
+		//5cm vertical jumjp
+		//Airborne for 3s
+
+	}
+
+	public void doHeavyPizzaUltimate(){
+		// Invulnerable for 3 sec
+		//Knocks over objects
+		
+
+	}
 
 	public void doOnPepperoniEnter(Collider col){
 		gm.increasePowerBar(col.gameObject.GetComponent<Pepperoni>().ultimatePowerValue);
