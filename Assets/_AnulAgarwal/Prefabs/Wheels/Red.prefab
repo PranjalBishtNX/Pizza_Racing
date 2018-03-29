@@ -116,7 +116,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3b1d94b8a80910342a885527d00b808f, type: 2}
+  - {fileID: 2100000, guid: 6525a73e2627543418788d1594bd370e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   wheelMesh: {fileID: 1536457238305602}
   level: 0
   motor: 1
-  steering: 1
+  steering: 0
   reverseTurn: 0
   id: 3
   speed: 0

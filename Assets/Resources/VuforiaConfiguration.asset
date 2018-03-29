@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: VuforiaConfiguration
   m_EditorClassIdentifier: 
   vuforia:
-    vuforiaLicenseKey: AUI5G7//////AAAAmaaB0GNAp0s8gIh9sJ4Tixd7T/MZvhuZVvHovVjRwS+uXu/xzrahRLIuMR8W9g+lbAWxJd30jm5wNSv8Ri6fxqbuEXspf7pZ5Qf8sJTENEJjN9ISmDiXHsm7919UcqfYegVjOPbJt6BJzoRbno2hswoZySJihcnspciGZA7SnFMDRKi4L0t3yV59PTNBbWdk9z80zTRfK9K1pULbw7KIpbqCreiahL5WMLa3nqhQrdukiAswnGZOIjUjPe0/uWrvN3LjzMYveJn5UyNfQlvQETWzP6aeknTQ+U69D9DTfdEY6KAHg8fbZ+aJLeQ1bRN2CTt2cdzISbciKN2lhxLKoLdjhKYA0eM5tdYtfFVTDIEg
-    ufoLicenseKey: QVduaHZvbi8vLy8vQUFBQUtHQW9USmR1OVVqU3I2QkRRR0MzMExpQkdNMmZmUzlVaVVGakVyeWxqSGlMZnEwTGNEbVpwNC9tNmw5Z2tRWnJjbXpKbUdaZzJ0bElRMmZVT01UeTRWNzY1b0hwZW02ekNmV1hPcHFTZURIelk4bG9rcnlKQ0xuZmVzZitLUDFQVHVpOUtXMmhVbGRmQ1FaVTBiRmVIbDlyWFQrZkJjOTBRM2ZJYlNjamVFZTBsM2ZpS1JIeVhzWnA2VGZwNTMvZlVVV0U4RG1EWUs1eXJ5bkRDV0t2TUFKK1d5L1FiQ3hmOUUvTURYbWVMcjgwWi8vSUgzNVdibHpyZXB4cEIvOTlJY0twVlp5dTdyd0Ntc0x3TUVyb0dWMDJqVnNRaXBGWUw0V2tHenhya3UvMDA5dStHZzdjdDNJSENJdHdCMFp2WXlPbWVJWi9OaWdZL2hIeStBU0VuUzVwTEVqZVRJZklaeEc3alV3UnRXTjA=
+    vuforiaLicenseKey: 
+    ufoLicenseKey: QVF0R3F4UC8vLy8vQUFBQUtINkFqdXdzY2t5Z2gzRzZHUVlrM1V3V1pvWFR0SVJvVUV6TmlPK29IN2EzcTJmRm5BWkp5M21lWmdMRDJ4MVM4UVZkVEs1ZjVSaWNCN0pHYXZNcmRNalhyM3BGV3Q5Y2RjNEYzNEgva1prdmJOVHNYOVBKYjRtL2hrdGpvK1BLWUJlMzU0M04rL0Z0REFFbm1ZZE5QdVlhNnhzQjI0azUvMEJTOWFqWjg0dGM0aE12VFQweXBPMlgvUnhWUHB6bTM3S2RWYkZDeGc5UnIvaXpkK3lDQkxJTlpCYTRXUUpIeUNVQzJsejNKdU9oeTJ3eUdMQ0g5Q01PeTltVUJFQ3JuUjVWd2RnR3RLZGc2bVVNa0ZyVGxlb25Cai8vb3NleDBVaVpYcnR5YUVmL1V6MzNVREJCQVF1SGZaWFZRVk5TNUkyNFdrVzRsL0JLTDIwN1NjNG1uZmQ3dDhzNDhFV0grbElnV2lXZlZmK2U=
     delayedInitialization: 0
     cameraDeviceModeSetting: -1
     maxSimultaneousImageTargets: 1
@@ -43,12 +43,8 @@ MonoBehaviour:
       FieldOfView: {x: 0, y: 0, z: 0, w: 0}
       ContainsMagnet: 0
   databaseLoad:
-    dataSetsToLoad:
-    - VuforiaMars_Images
-    - VuforiaMars_VuMark
-    dataSetsToActivate:
-    - VuforiaMars_Images
-    - VuforiaMars_VuMark
+    dataSetsToLoad: []
+    dataSetsToActivate: []
   videoBackground:
     clippingMode: 0
     numDivisions: 2

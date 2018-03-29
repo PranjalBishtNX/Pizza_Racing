@@ -76,7 +76,7 @@ public class Vehicle : MonoBehaviour {
 
 		//Enable rigidbody
 		GetComponentInChildren<Rigidbody>().useGravity = true;
-		transform.rotation = Quaternion.Euler (0, 90, 0);
+		transform.rotation = Quaternion.Euler (0, 0, 0);
 		//Enable car movement
 	//	GetComponent<Engine> ().enabled = true;
 		//this is for power through wheels in case propulsion doesnt work

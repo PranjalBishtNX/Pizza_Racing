@@ -1,0 +1,186 @@
+fileFormatVersion: 2
+guid: 3e0390f3972f4bf449771b1fb8e397d4
+timeCreated: 1522217887
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Chasis_01
+    100002: Chasis_01_Black
+    100004: //RootNode
+    400000: Chasis_01
+    400002: Chasis_01_Black
+    400004: //RootNode
+    2100000: M_Cardboard
+    2100002: M_IceCreamStick
+    2100004: M_Wood
+    2100006: M_Metal_Unpainted
+    2100008: M_Cork
+    2100010: M_PencilAxis
+    2100012: M_Goop
+    2100014: M_Tape2
+    2100016: M_Metal_Painted
+    2100018: M_Stick
+    2100020: M_Tape1
+    2100022: M_Chasis_1_Maps
+    2100024: M_Paper
+    2100026: BlackOutline
+    2300000: Chasis_01
+    2300002: Chasis_01_Black
+    2300004: //RootNode
+    3300000: Chasis_01
+    3300002: Chasis_01_Black
+    3300004: //RootNode
+    4300000: Chasis_01
+    4300002: Chasis_01_Black
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackOutline
+    second: {fileID: 2100000, guid: adff0ff5067ecb549882fa14207830d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Cardboard
+    second: {fileID: 2100000, guid: 0568f9cd2a89fd748a1e2b9e85a8590d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Chasis_1_Maps
+    second: {fileID: 2100000, guid: ca5940fb0b9caaf439fab3cbceb8c785, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Cork
+    second: {fileID: 2100000, guid: 35645d39aa9e74a4380daa50606baad3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Goop
+    second: {fileID: 2100000, guid: 02fb9e1ae7d674a48a1c8e1ff1810e03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_IceCreamStick
+    second: {fileID: 2100000, guid: 916337db153b922449a7a7e0e8345d63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Metal_Painted
+    second: {fileID: 2100000, guid: c50e25a4036a1b247bfd4d37781eccdd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Metal_Unpainted
+    second: {fileID: 2100000, guid: a5b1eb89ac0dde94ab2ec4a01feed745, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Paper
+    second: {fileID: 2100000, guid: 78f5c43133281044093c56a6a414834c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_PencilAxis
+    second: {fileID: 2100000, guid: 1faafa2d562ee0146b9d72fe182572db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Stick
+    second: {fileID: 2100000, guid: 4ecbfdccb79cea94e956e8d0e330e065, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Tape1
+    second: {fileID: 2100000, guid: a3d6ae6ae4759eb40b5c75947ff7e934, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Tape2
+    second: {fileID: 2100000, guid: 1b56b828d1d53f84cb82c8c1cae4bc93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Wood
+    second: {fileID: 2100000, guid: e50d7e212c0ccd043861eb6b91b35c9e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.2
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
