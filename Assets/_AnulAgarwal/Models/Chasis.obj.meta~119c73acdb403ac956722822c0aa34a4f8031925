@@ -1,21 +1,36 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/_AnulAgarwal/Models/Chasis.obj.meta~119c73acdb403ac956722822c0aa34a4f8031925
 guid: 5c414c0c01cd9e4449890e12174da4f4
 timeCreated: 1522656522
+=======
+guid: 22d8299bde702c44cb363289070dbcf1
+timeCreated: 1522217679
+>>>>>>> parent of 119c73a... a:Assets/Kitchen Assets/Fork_01.fbx.meta
 licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     100002: Cylinder001
     400000: //RootNode
+<<<<<<< HEAD:Assets/_AnulAgarwal/Models/Chasis.obj.meta~119c73acdb403ac956722822c0aa34a4f8031925
     400002: Cylinder001
     2300000: Cylinder001
     3300000: Cylinder001
     4300000: Cylinder001
+=======
+    2100000: lambert1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pCube61
+    9500000: //RootNode
+  externalObjects: {}
+>>>>>>> parent of 119c73a... a:Assets/Kitchen Assets/Fork_01.fbx.meta
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -28,6 +43,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -52,6 +68,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
