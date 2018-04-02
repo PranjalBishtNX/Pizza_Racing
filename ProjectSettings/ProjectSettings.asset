@@ -158,7 +158,11 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+<<<<<<< HEAD
     Android: com.R2.PizaaoGoVroom
+=======
+    Android: com.R2.PizzaGoVroom
+>>>>>>> 5d0c49a91508f79a09d28d852afa35a9f98691e7
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 24

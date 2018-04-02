@@ -425,8 +425,12 @@ public	List<BuilderPointAttacher> pointList;
 				if (cpa.type == 1) {
 
 					GameObject goa = Instantiate (glm.wheel.Find(d=> d.GetComponent<Wheel>().id == cpa.objID), pointAttached.transform.position, pointAttached.transform.rotation);
+
 					goa.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody> ().transform);
-					goa.transform.localScale = new Vector3 (0.05f, 0.05f, 0.05f);
+				//	goa.transform.rotation = pointAttached.transform.rotation;
+
+				//	goa.GetComponentInChildren<MeshRenderer>().transform.rotation = Quaternion.Euler(Vector3.zero);
+				//	goa.transform.localScale = new Vector3 (0.03f, 0.03f, 0.03f);
 //					vehicle.GetComponent<Engine>().wheelInfo.Add(goa.GetComponent<Wheel> ());
 					vehicle.wheels.Add (goa.GetComponent<Wheel> ());
 					vehicle.vb.cca.m_WheelColliders.Add (goa.GetComponentInChildren<WheelCollider>());
