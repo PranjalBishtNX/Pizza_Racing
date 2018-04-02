@@ -1,20 +1,18 @@
 fileFormatVersion: 2
-guid: 4e4610c9dcdab4c4d920292b81dc4d55
-timeCreated: 1522142172
+guid: 844d9ae87977c3c4491bede775179e56
+timeCreated: 1522649808
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: polySurface42
+    100002: Object001
     400000: //RootNode
-    400002: polySurface42
-    2100000: Wall
-    2100002: Counter_Top
-    2300000: polySurface42
-    3300000: polySurface42
-    4300000: polySurface42
-    9500000: //RootNode
+    400002: Object001
+    2100000: Object001Mat
+    2300000: Object001
+    3300000: Object001
+    4300000: Object001
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -89,7 +87,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
