@@ -8,11 +8,29 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: lambert1
+    2100002: SpatulaWoodw
+    2100004: WooddarkSpat
+    2100006: Spatula_frontw
     2300000: //RootNode
     3300000: //RootNode
     4300000: pCube54
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpatulaWoodw
+    second: {fileID: 2100000, guid: 02b77f01bfd3d8743b0d65f1cb156ffa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spatula_frontw
+    second: {fileID: 2100000, guid: f6619af2b854ecf4f92f1f54e0041ac2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WooddarkSpat
+    second: {fileID: 2100000, guid: 62f975cb73b771a4a95a079b899f5d0e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
