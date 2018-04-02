@@ -1,59 +1,48 @@
 fileFormatVersion: 2
-guid: 3e0390f3972f4bf449771b1fb8e397d4
-timeCreated: 1522677978
+guid: ae0d6da56cddf324098f7ae85fd2f246
+timeCreated: 1522677922
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Chasis_01
-    100002: Chasis_01_Black
+    100000: Chasis_02
+    100002: Chasis_02_Black
     100004: //RootNode
-    400000: Chasis_01
-    400002: Chasis_01_Black
+    400000: Chasis_02
+    400002: Chasis_02_Black
     400004: //RootNode
-    2100000: lambert1
-    2100002: M_Cardboard
-    2100004: M_IceCreamStick
-    2100006: M_Wood
-    2100008: M_Metal_Unpainted
-    2100010: M_Cork
-    2100012: M_PencilAxis
-    2100014: M_Goop
-    2100016: M_Tape2
-    2100018: M_Metal_Painted
-    2100020: M_Tape1
-    2100022: M_Chasis_1_Maps
-    2100024: M_Paper
-    2100026: BlackOutline
-    2100028: M_Seat
-    2300000: Chasis_01
-    2300002: Chasis_01_Black
-    3300000: Chasis_01
-    3300002: Chasis_01_Black
-    4300000: Chasis_01
-    4300002: Chasis_01_Black
+    2100000: M_Plastic
+    2100002: M_Bottle_PlasticOuter
+    2100004: M_PencilAxis
+    2100006: M_Goop
+    2100008: M_Apple
+    2100010: M_Tape1
+    2100012: lambert1
+    2100014: M_Wood
+    2100016: BlackOutline
+    2300000: Chasis_02
+    2300002: Chasis_02_Black
+    3300000: Chasis_02
+    3300002: Chasis_02_Black
+    4300000: Chasis_02
+    4300002: Chasis_02_Black
     9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: BlackOutline
-    second: {fileID: 2100000, guid: 30b45aa44d0b60c45aaf4118dc7226b1, type: 2}
+    second: {fileID: 2100000, guid: adff0ff5067ecb549882fa14207830d5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Cardboard
-    second: {fileID: 2100000, guid: 0568f9cd2a89fd748a1e2b9e85a8590d, type: 2}
+      name: M_Apple
+    second: {fileID: 2100000, guid: da06e9f75b793f7438d9453eb92e4d80, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Chasis_1_Maps
-    second: {fileID: 2100000, guid: f9957d17def6e0a41a33cbf82c43febf, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Cork
-    second: {fileID: 2100000, guid: 35645d39aa9e74a4380daa50606baad3, type: 2}
+      name: M_Bottle_PlasticOuter
+    second: {fileID: 2100000, guid: 27b5e5a951d3c54419bf100a0639983e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -62,53 +51,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_IceCreamStick
-    second: {fileID: 2100000, guid: 916337db153b922449a7a7e0e8345d63, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Metal_Painted
-    second: {fileID: 2100000, guid: e6b3be3f66e054548aaaf0b4b724544a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Metal_Unpainted
-    second: {fileID: 2100000, guid: a5b1eb89ac0dde94ab2ec4a01feed745, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Paper
-    second: {fileID: 2100000, guid: 78f5c43133281044093c56a6a414834c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: M_PencilAxis
-    second: {fileID: 2100000, guid: 916337db153b922449a7a7e0e8345d63, type: 2}
+    second: {fileID: 2100000, guid: d182da172b5a95b41ae6de8a7c5f25dd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Seat
-    second: {fileID: 2100000, guid: e50d7e212c0ccd043861eb6b91b35c9e, type: 2}
+      name: M_Plastic
+    second: {fileID: 2100000, guid: eb0ef4f647dd0ff4f97278a006bbae90, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Tape1
-    second: {fileID: 2100000, guid: a3d6ae6ae4759eb40b5c75947ff7e934, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Tape2
-    second: {fileID: 2100000, guid: 1b56b828d1d53f84cb82c8c1cae4bc93, type: 2}
+    second: {fileID: 2100000, guid: 7da3e6ffe8e68b342a865ff2b2a2cf58, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Wood
-    second: {fileID: 2100000, guid: 469d622d4cc3924449b30ad50f8e5763, type: 2}
+    second: {fileID: 2100000, guid: b443ac2c53a4ccf4da4772da52b2e3db, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
-    second: {fileID: 2100000, guid: 916337db153b922449a7a7e0e8345d63, type: 2}
+    second: {fileID: 2100000, guid: 3a2782e0d74f6624fa69c2637630634b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
