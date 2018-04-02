@@ -21,7 +21,22 @@ ModelImporter:
     4300000: WH_Apple
     4300002: WH_Apple_Black
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackOutline
+    second: {fileID: 2100000, guid: 30b45aa44d0b60c45aaf4118dc7226b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Apple
+    second: {fileID: 2100000, guid: da06e9f75b793f7438d9453eb92e4d80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Wood
+    second: {fileID: 2100000, guid: 0568f9cd2a89fd748a1e2b9e85a8590d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

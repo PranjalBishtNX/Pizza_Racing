@@ -21,7 +21,17 @@ ModelImporter:
     4300000: ENG_Can
     4300002: ENG_Can_Black
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackOutline
+    second: {fileID: 2100000, guid: adff0ff5067ecb549882fa14207830d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Metal_Unpainted
+    second: {fileID: 2100000, guid: a5b1eb89ac0dde94ab2ec4a01feed745, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
