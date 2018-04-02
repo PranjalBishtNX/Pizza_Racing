@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour {
 
 				cpp.attachID = bpa.attachmentPoint.GetComponent<AttachmentPoint> ().id;
 				save.carParts.Add (cpp);
+
 			}
 		}
 		if(playerVehicle.wheels.Count>0)

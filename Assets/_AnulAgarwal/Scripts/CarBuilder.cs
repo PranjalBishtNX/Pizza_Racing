@@ -112,6 +112,8 @@ public	List<BuilderPointAttacher> pointList;
 	}
 
 
+
+
 	public void clearOldCar(){
 		if(pointList.Count>0)
 		foreach (BuilderPointAttacher bp in pointList) {
@@ -168,11 +170,12 @@ public	List<BuilderPointAttacher> pointList;
 			if (bp.attachmentPoint == currentAttachmentPoint) {
 				if (bp.gameObj.GetComponent<Wheel> () != null) {
 					vehicle.wheels.Remove (bp.gameObj.GetComponent<Wheel> ());
-					vehicle.GetComponent<Engine> ().removeWheel (bp.gameObj.GetComponent<Wheel> ());
+					//vehicle.GetComponent<Engine> ().removeWheel (bp.gameObj.GetComponent<Wheel> ());
 				} else if (bp.gameObj.GetComponent<PropulsionObject> () != null) {
 
 					vehicle.numberOfEngine -= 1;
 					vehicle.propObj.Remove (bp.gameObj.GetComponent<PropulsionObject> ());
+
 				}
 		//		bp.gameObj.SetActive (false);
 				Destroy (bp.gameObj);
@@ -195,14 +198,18 @@ public	List<BuilderPointAttacher> pointList;
 		if (typeNumber == 1) {
 
 			vehicle.po = obj.GetComponent<PropulsionObject> ();
-			vehicle.numberOfEngine += 1;
+		//	vehicle.numberOfEngine += 1;
 			vehicle.propObj.Add (obj.GetComponent<PropulsionObject> ());
+
+			//To display stat
 			displayStat ("Speed: " + obj.GetComponent<PropulsionObject> ().forceSpeed,"Force: " + obj.GetComponent<PropulsionObject> ().weight);
 
 		} else {
 			
-			vehicle.GetComponent<Engine> ().wheelInfo.Add (obj.GetComponent<Wheel>());
+			//vehicle.GetComponent<Engine> ().wheelInfo.Add (obj.GetComponent<Wheel>());
 			vehicle.wheels.Add (obj.GetComponent<Wheel>());
+
+			//To display stat
 			displayStat ("Speed: " + obj.GetComponent<Wheel> ().speed,"Force: " + obj.GetComponent<Wheel> ().turningRadius);
 
 		}
@@ -249,7 +256,7 @@ public	List<BuilderPointAttacher> pointList;
 
 			while (i < tmp_po.Count && i < vehicle.spawnerList.Count) {
 
-				PropulsionObject propul = Instantiate (tmp_po [i], vehicle.spawnerList[i].transform.position, vehicle.spawnerList[i].transform.rotation) as PropulsionObject;
+				PropulsionObject propul = Instantiate (tmp_po [i], vehicle.spawnerList [i].transform.position, vehicle.spawnerList [i].transform.rotation) as PropulsionObject;
 				propul.transform.localScale = new Vector3 (0.3f, 0.3f, 0.3f);
 				propul.transform.SetParent (vehicle.spawnerList [i].transform);
 				vehicle.spawnerList [i].GetComponent<CarBuilderSelectorBox> ().obj = propul.gameObject;
@@ -264,18 +271,22 @@ public	List<BuilderPointAttacher> pointList;
 			int i = 0;
 			while (i < glm.wheel.Count && i < vehicle.spawnerList.Count) {
 
-				GameObject wheel = Instantiate (glm.wheel [i], vehicle.spawnerList[i].transform.position, vehicle.spawnerList[i].transform.rotation) ;
+				GameObject wheel = Instantiate (glm.wheel [i], vehicle.spawnerList [i].transform.position, vehicle.spawnerList [i].transform.rotation);
 				tmpSpawnedObj.Add (wheel);
 				vehicle.spawnerList [i].GetComponent<CarBuilderSelectorBox> ().enableCollider ();
 				wheel.transform.SetParent (vehicle.spawnerList [i].transform);
 
 				vehicle.spawnerList [i].GetComponent<CarBuilderSelectorBox> ().obj = wheel.gameObject;
-		//		wheel.transform.position = Vector3.zero;
+				//		wheel.transform.position = Vector3.zero;
 				print (wheel.transform.localPosition);
 
 				i++;
 
 			}
+
+		} else if (value == 0) {
+
+
 
 		}
 
@@ -403,7 +414,7 @@ public	List<BuilderPointAttacher> pointList;
 			if (vehicle.po != null) {
 				Destroy (vehicle.po.gameObject);
 			} 
-			print (cp.Count);
+			int q = 0;
 			foreach (CarPart cpa in cp) {
 
 				GameObject pointAttached= vehicle.attachmentPoints.Find(d=> d.GetComponent<AttachmentPoint>().id==cpa.attachID);
@@ -421,7 +432,10 @@ public	List<BuilderPointAttacher> pointList;
 					vehicle.vb.cca.m_WheelColliders.Add (goa.GetComponentInChildren<WheelCollider>());
 					vehicle.vb.cca.m_WheelMeshes.Add (goa.GetComponentInChildren<MeshRenderer>().gameObject);
 					//vehicle.vb.cca.m_WheelMeshes.Add (goa.GetComponentInChildren<GameObject>());
+					if (goa.GetComponent<Wheel> ().steering) {
 
+						vehicle.vb.cca.wheelsToSteer.Add (vehicle.vb.cca.m_WheelColliders.Count-1);
+					}
 
 					bp.gameObj = goa;
 
@@ -446,9 +460,9 @@ public	List<BuilderPointAttacher> pointList;
 
 		
 				//	go.transform.localPosition = new Vector3 (cpa.posX, cpa.posY, cpa.posZ);
-
+				q++;
 			}
-
+			q = 0;
 		}
 
 	}

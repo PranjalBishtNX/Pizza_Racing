@@ -37,6 +37,8 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private float m_RevRangeBoundary = 1f;
         [SerializeField] private float m_SlipLimit;
         [SerializeField] private float m_BrakeTorque;
+		[SerializeField]
+		public List<int> wheelsToSteer;
 
         private Quaternion[] m_WheelMeshLocalRotations;
         private Vector3 m_Prevpos, m_Pos;
@@ -149,7 +151,9 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void Move(float steering, float accel, float footbrake, float handbrake)
         {
-            for (int i = 0; i < 4; i++)
+
+
+			for (int i = 0; i < m_WheelColliders.Count; i++)
             {
                 Quaternion quat;
                 Vector3 position;
@@ -159,7 +163,10 @@ namespace UnityStandardAssets.Vehicles.Car
             }
 
             //clamp input values
-            steering = Mathf.Clamp(steering, -1, 1);
+			steering = Mathf.Clamp(steering, -(100 - ((CurrentSpeed / MaxSpeed) * 100)), (100 - ((CurrentSpeed / MaxSpeed) * 100)));
+
+		//	steering = ;
+			//print(steering);
             AccelInput = accel = Mathf.Clamp(accel, 0, 1);
             BrakeInput = footbrake = -1*Mathf.Clamp(footbrake, -1, 0);
             handbrake = Mathf.Clamp(handbrake, 0, 1);
@@ -167,8 +174,15 @@ namespace UnityStandardAssets.Vehicles.Car
             //Set the steer on the front wheels.
             //Assuming that wheels 0 and 1 are the front wheels.
             m_SteerAngle = steering*m_MaximumSteerAngle;
-            m_WheelColliders[2].steerAngle = m_SteerAngle;
-            m_WheelColliders[3].steerAngle = m_SteerAngle;
+
+			foreach (int index in wheelsToSteer) {
+				//print (index);
+				m_WheelColliders [index].steerAngle = m_SteerAngle;
+			
+			}
+          
+
+
 
             SteerHelper();
             ApplyDrive(accel, footbrake);

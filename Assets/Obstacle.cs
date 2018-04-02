@@ -25,7 +25,7 @@ public class Obstacle : MonoBehaviour {
 	void OnCollisionEnter(Collider col){
 		if (col.gameObject.layer == 9) {
 
-			print ("ent");
+		
 			if (type == Obstacle.Type.Balloon) {
 		GetComponent<Balloon> ().flyBalloon ();
 				//make this obstacle fly

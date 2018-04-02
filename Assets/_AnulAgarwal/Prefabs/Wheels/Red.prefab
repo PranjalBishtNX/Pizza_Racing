@@ -169,8 +169,8 @@ MonoBehaviour:
   wheel: {fileID: 146210831715839486}
   wheelMesh: {fileID: 1536457238305602}
   level: 0
-  motor: 1
-  steering: 1
+  motor: 0
+  steering: 0
   reverseTurn: 0
   id: 3
   speed: 0
