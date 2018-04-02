@@ -1,17 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 5cb632d89b5bf164d8f54fe9bba60f64
-timeCreated: 1522649806
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
-=======
-guid: 094db8cc739e61449800277247ce5838
-timeCreated: 1522656516
-licenseType: Free
-ModelImporter:
-  serializedVersion: 21
->>>>>>> 119c73acdb403ac956722822c0aa34a4f8031925
   fileIDToRecycleName:
     100000: group5_Box005
     100002: group5_Box010
@@ -347,7 +337,6 @@ ModelImporter:
     400328: group5_pCylinder9
     400330: pCube2_group5
     400332: //RootNode
-<<<<<<< HEAD
     2100000: group5_Box005Mat
     2100002: group5_Box010Mat
     2100004: group5_Box054Mat
@@ -514,8 +503,6 @@ ModelImporter:
     2100326: group5_pCylinder8Mat
     2100328: group5_pCylinder9Mat
     2100330: pCube2_group5Mat
-=======
->>>>>>> 119c73acdb403ac956722822c0aa34a4f8031925
     2300000: group5_Box005
     2300002: group5_Box010
     2300004: group5_Box054
@@ -1014,18 +1001,13 @@ ModelImporter:
     4300326: group5_pCylinder8
     4300328: group5_pCylinder9
     4300330: pCube2_group5
-<<<<<<< HEAD
+    9500000: //RootNode
   externalObjects: {}
-=======
->>>>>>> 119c73acdb403ac956722822c0aa34a4f8031925
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-<<<<<<< HEAD
     materialLocation: 1
-=======
->>>>>>> 119c73acdb403ac956722822c0aa34a4f8031925
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -1038,10 +1020,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-<<<<<<< HEAD
     importAnimatedCustomProperties: 0
-=======
->>>>>>> 119c73acdb403ac956722822c0aa34a4f8031925
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -1066,11 +1045,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-<<<<<<< HEAD
     preserveHierarchy: 0
     indexFormat: 0
-=======
->>>>>>> 119c73acdb403ac956722822c0aa34a4f8031925
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -1100,7 +1076,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
