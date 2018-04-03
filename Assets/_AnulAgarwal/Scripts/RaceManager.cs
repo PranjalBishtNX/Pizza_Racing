@@ -41,6 +41,7 @@ public class RaceManager : MonoBehaviour {
 		GetComponent<GameManager> ().LoadGame ();
 		startCountdown ();
 		raceUIPanel.SetActive (true);
+		print ("started");
 
 	}
 	public void startCountdown(){

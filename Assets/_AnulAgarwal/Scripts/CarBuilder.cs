@@ -156,12 +156,12 @@ public	List<BuilderPointAttacher> pointList;
 		//obj.transform.rotation = temp_rot;
 		if (obj.GetComponent<Wheel> () != null) {
 
-			obj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
+			obj.transform.localScale = new Vector3 (1f, 1f, 1f);
 		
 		}
 		else if(obj.GetComponent<PropulsionObject> () != null){
 
-			obj.transform.localScale = new Vector3 (0.3f, 0.3f, 0.3f);
+			obj.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
 
 
 		}
@@ -257,7 +257,7 @@ public	List<BuilderPointAttacher> pointList;
 			while (i < tmp_po.Count && i < vehicle.spawnerList.Count) {
 
 				PropulsionObject propul = Instantiate (tmp_po [i], vehicle.spawnerList [i].transform.position, vehicle.spawnerList [i].transform.rotation) as PropulsionObject;
-				propul.transform.localScale = new Vector3 (0.3f, 0.3f, 0.3f);
+			//	propul.transform.localScale = new Vector3 (0.3f, 0.3f, 0.3f);
 				propul.transform.SetParent (vehicle.spawnerList [i].transform);
 				vehicle.spawnerList [i].GetComponent<CarBuilderSelectorBox> ().obj = propul.gameObject;
 				vehicle.spawnerList [i].GetComponent<CarBuilderSelectorBox> ().enableCollider ();
