@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/LevelVA.unity
     guid: 91428aba585df034faba4e51fd7c533f
+  - enabled: 1
+    path: Assets/_ShujonPoddar/Scenes/Diner 2-1.unity
+    guid: d2e4a80f15030db46a1e631b45b2de8d
