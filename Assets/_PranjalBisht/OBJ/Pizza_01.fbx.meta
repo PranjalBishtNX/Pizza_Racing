@@ -1,25 +1,34 @@
 fileFormatVersion: 2
-guid: f6d2b6bec79f5ab4fac58ba14283cb91
-timeCreated: 1522139298
+guid: 6308a19d63bfbf54d89d783b39dbf940
+timeCreated: 1522737737
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: WH_PaperRoll
-    100002: WH_PaperRollBlackOutline
+    100000: Pizza1
+    100002: Pizza1BlackOutline
     100004: //RootNode
-    400000: WH_PaperRoll
-    400002: WH_PaperRollBlackOutline
+    100006: Pizza_01
+    100008: Pizza_01_BlackOutline
+    400000: Pizza1
+    400002: Pizza1BlackOutline
     400004: //RootNode
-    2100000: BlackOutline
-    2100002: M_Chasis_1_Maps
-    2100004: M_Cardboard
-    2300000: WH_PaperRoll
-    2300002: WH_PaperRollBlackOutline
-    3300000: WH_PaperRoll
-    3300002: WH_PaperRollBlackOutline
-    4300000: WH_PaperRollBlackOutline
-    4300002: WH_PaperRoll
+    400006: Pizza_01
+    400008: Pizza_01_BlackOutline
+    2100000: lambert1
+    2100002: BlackOutline
+    2300000: Pizza1
+    2300002: Pizza1BlackOutline
+    2300004: Pizza_01
+    2300006: Pizza_01_BlackOutline
+    3300000: Pizza1
+    3300002: Pizza1BlackOutline
+    3300004: Pizza_01
+    3300006: Pizza_01_BlackOutline
+    4300000: Pizza1
+    4300002: Pizza1BlackOutline
+    4300004: Pizza_01
+    4300006: Pizza_01_BlackOutline
     9500000: //RootNode
   externalObjects: {}
   materials:
