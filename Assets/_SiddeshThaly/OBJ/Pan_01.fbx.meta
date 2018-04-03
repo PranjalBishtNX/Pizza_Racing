@@ -18,7 +18,17 @@ ModelImporter:
     3300002: Pan1
     4300000: Pan1
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pan_handle
+    second: {fileID: 2100000, guid: 8e873075f1afee94f840d06a25d24314, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 2345f6acc6cdeed45aa5d949746b7e79, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
