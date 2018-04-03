@@ -1,35 +1,78 @@
 fileFormatVersion: 2
-guid: 8cbb8afb9c794114bb2a940766b0624b
-timeCreated: 1522122660
+guid: ae0d6da56cddf324098f7ae85fd2f246
+timeCreated: 1522677922
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Bowl3
-    100002: //RootNode
-    100004: Bowl4
-    400000: Bowl3
-    400002: //RootNode
-    400004: Bowl4
-    2100000: lambert1
-    2300000: Bowl3
-    2300002: Bowl4
-    3300000: Bowl3
-    3300002: Bowl4
-    4300000: Bowl3
-    4300002: Bowl4
+    100000: Chasis_02
+    100002: Chasis_02_Black
+    100004: //RootNode
+    400000: Chasis_02
+    400002: Chasis_02_Black
+    400004: //RootNode
+    2100000: M_Plastic
+    2100002: M_Bottle_PlasticOuter
+    2100004: M_PencilAxis
+    2100006: M_Goop
+    2100008: M_Apple
+    2100010: M_Tape1
+    2100012: lambert1
+    2100014: M_Wood
+    2100016: BlackOutline
+    2300000: Chasis_02
+    2300002: Chasis_02_Black
+    3300000: Chasis_02
+    3300002: Chasis_02_Black
+    4300000: Chasis_02
+    4300002: Chasis_02_Black
     9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Wall
-    second: {fileID: 2100000, guid: 69b3817b32b0bc6429649e05aeec4977, type: 2}
+      name: BlackOutline
+    second: {fileID: 2100000, guid: adff0ff5067ecb549882fa14207830d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Apple
+    second: {fileID: 2100000, guid: da06e9f75b793f7438d9453eb92e4d80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Bottle_PlasticOuter
+    second: {fileID: 2100000, guid: 27b5e5a951d3c54419bf100a0639983e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Goop
+    second: {fileID: 2100000, guid: 02fb9e1ae7d674a48a1c8e1ff1810e03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_PencilAxis
+    second: {fileID: 2100000, guid: d182da172b5a95b41ae6de8a7c5f25dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Plastic
+    second: {fileID: 2100000, guid: eb0ef4f647dd0ff4f97278a006bbae90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Tape1
+    second: {fileID: 2100000, guid: 7da3e6ffe8e68b342a865ff2b2a2cf58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Wood
+    second: {fileID: 2100000, guid: b443ac2c53a4ccf4da4772da52b2e3db, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
-    second: {fileID: 2100000, guid: a756bdc79da2fde4691fdeea56b1ece4, type: 2}
+    second: {fileID: 2100000, guid: 3a2782e0d74f6624fa69c2637630634b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -73,7 +116,7 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    indexFormat: 1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

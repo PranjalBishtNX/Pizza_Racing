@@ -1,16 +1,24 @@
 fileFormatVersion: 2
-guid: 744af2382fca95746bcd844fff684f4d
-timeCreated: 1522210053
+guid: c32f9f7eb8f8f4549a66d986d025c82f
+timeCreated: 1522690520
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: AC_Batteries
+    100002: //RootNode
+    100004: AC_Batteries_Black
+    400000: AC_Batteries
+    400002: //RootNode
+    400004: AC_Batteries_Black
     2100000: lambert1
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: pCylinder13
+    2100002: BlackOutline
+    2300000: AC_Batteries
+    2300002: AC_Batteries_Black
+    3300000: AC_Batteries
+    3300002: AC_Batteries_Black
+    4300000: AC_Batteries
+    4300002: AC_Batteries_Black
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -56,7 +64,7 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    indexFormat: 1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
