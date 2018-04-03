@@ -8,11 +8,22 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: lambert1
+    2100002: Refrig_handle
     2300000: //RootNode
     3300000: //RootNode
     4300000: pCube37
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Refrig_handle
+    second: {fileID: 2100000, guid: 1582dbb20b4cef74da364143a281e7d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 1582dbb20b4cef74da364143a281e7d6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
