@@ -240,7 +240,7 @@ public class GameManager : MonoBehaviour {
 		//playerVehicle.GetComponentInChildren<Rigidbody> ().useGravity = true;
 		SaveGame ();
 
-		Application.LoadLevel("Diner 2-1");
+		Application.LoadLevel("LevelVA");
 
 
 	}

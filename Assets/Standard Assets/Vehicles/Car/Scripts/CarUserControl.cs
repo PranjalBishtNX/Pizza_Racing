@@ -24,7 +24,7 @@ namespace UnityStandardAssets.Vehicles.Car
             float v = CrossPlatformInputManager.GetAxis("Vertical");
 
             float handbrake = CrossPlatformInputManager.GetAxis("Jump");
-			m_Car.Move(h, v, v, handbrake);
+			m_Car.Move(h, 0.6f, 0.6f, handbrake);
 
         }
     }
