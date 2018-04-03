@@ -16,17 +16,7 @@ ModelImporter:
     3300000: pCylinder7
     4300000: pCylinder7
     9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Bottle
-    second: {fileID: 2100000, guid: beede9936b8333041832975648214fd2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: BottleCap
-    second: {fileID: 2100000, guid: 9822ddc5293b2d145be5cb49d842d8a4, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

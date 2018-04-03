@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3e0390f3972f4bf449771b1fb8e397d4
-timeCreated: 1522677978
+timeCreated: 1522217887
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,25 +11,26 @@ ModelImporter:
     400000: Chasis_01
     400002: Chasis_01_Black
     400004: //RootNode
-    2100000: lambert1
-    2100002: M_Cardboard
-    2100004: M_IceCreamStick
-    2100006: M_Wood
-    2100008: M_Metal_Unpainted
-    2100010: M_Cork
-    2100012: M_PencilAxis
-    2100014: M_Goop
-    2100016: M_Tape2
-    2100018: M_Metal_Painted
+    2100000: M_Cardboard
+    2100002: M_IceCreamStick
+    2100004: M_Wood
+    2100006: M_Metal_Unpainted
+    2100008: M_Cork
+    2100010: M_PencilAxis
+    2100012: M_Goop
+    2100014: M_Tape2
+    2100016: M_Metal_Painted
+    2100018: M_Stick
     2100020: M_Tape1
     2100022: M_Chasis_1_Maps
     2100024: M_Paper
     2100026: BlackOutline
-    2100028: M_Seat
     2300000: Chasis_01
     2300002: Chasis_01_Black
+    2300004: //RootNode
     3300000: Chasis_01
     3300002: Chasis_01_Black
+    3300004: //RootNode
     4300000: Chasis_01
     4300002: Chasis_01_Black
     9500000: //RootNode
@@ -38,7 +39,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: BlackOutline
-    second: {fileID: 2100000, guid: 30b45aa44d0b60c45aaf4118dc7226b1, type: 2}
+    second: {fileID: 2100000, guid: adff0ff5067ecb549882fa14207830d5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -48,7 +49,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Chasis_1_Maps
-    second: {fileID: 2100000, guid: f9957d17def6e0a41a33cbf82c43febf, type: 2}
+    second: {fileID: 2100000, guid: ca5940fb0b9caaf439fab3cbceb8c785, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -68,7 +69,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Metal_Painted
-    second: {fileID: 2100000, guid: e6b3be3f66e054548aaaf0b4b724544a, type: 2}
+    second: {fileID: 2100000, guid: c50e25a4036a1b247bfd4d37781eccdd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -83,12 +84,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_PencilAxis
-    second: {fileID: 2100000, guid: 916337db153b922449a7a7e0e8345d63, type: 2}
+    second: {fileID: 2100000, guid: 1faafa2d562ee0146b9d72fe182572db, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Seat
-    second: {fileID: 2100000, guid: e50d7e212c0ccd043861eb6b91b35c9e, type: 2}
+      name: M_Stick
+    second: {fileID: 2100000, guid: 4ecbfdccb79cea94e956e8d0e330e065, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -103,12 +104,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Wood
-    second: {fileID: 2100000, guid: 469d622d4cc3924449b30ad50f8e5763, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 916337db153b922449a7a7e0e8345d63, type: 2}
+    second: {fileID: 2100000, guid: e50d7e212c0ccd043861eb6b91b35c9e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -138,7 +134,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.2
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
