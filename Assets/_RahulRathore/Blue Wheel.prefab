@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 4613668100552408}
   - component: {fileID: 33494310993267330}
   - component: {fileID: 23061433785850324}
-  - component: {fileID: 65879938852927792}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -68,8 +67,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1422781774569164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.57, z: 0}
-  m_LocalScale: {x: 16.666676, y: 16.666668, z: 16.666676}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4099965224535152}
   m_RootOrder: 1
@@ -80,22 +79,22 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1966768326753902}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
+  m_LocalPosition: {x: -9.641, y: 0.002, z: 18.785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4613668100552408}
   - {fileID: 4065136112485762}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
 --- !u!4 &4613668100552408
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1536457238305602}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -143,18 +142,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1536457238305602}
   m_Mesh: {fileID: 4300000, guid: bd7bc3de9e33e5540b6ac11ede595491, type: 3}
---- !u!65 &65879938852927792
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1536457238305602}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.37, y: 4, z: 4}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114930002979197468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,11 +169,11 @@ WheelCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1422781774569164}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
-    targetPosition: 0.1
+    targetPosition: 0.99
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0.1
   m_Mass: 20
