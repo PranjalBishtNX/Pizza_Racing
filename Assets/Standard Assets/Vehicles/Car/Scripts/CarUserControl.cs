@@ -8,7 +8,8 @@ namespace UnityStandardAssets.Vehicles.Car
     public class CarUserControl : MonoBehaviour
     {
         private CarController m_Car; // the car controller we want to use
-
+		[SerializeField]
+		public bool autoAccelerate;
 
         private void Awake()
         {
@@ -24,7 +25,10 @@ namespace UnityStandardAssets.Vehicles.Car
             float v = CrossPlatformInputManager.GetAxis("Vertical");
 
             float handbrake = CrossPlatformInputManager.GetAxis("Jump");
+			if (autoAccelerate)
+				v = 1;
 			m_Car.Move(h, v, v, handbrake);
+		
 
         }
     }

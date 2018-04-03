@@ -46,19 +46,42 @@ public class GameManager : MonoBehaviour {
 
 	public Vehicle.Character currentCharacter;
 
+	[SerializeField]
+	public GameObject charSelect;
 
 	// Use this for initialization
 	void Start () {
-	AttachmentPoint[] ap = FindObjectsOfType<AttachmentPoint> ();
-		foreach (AttachmentPoint pa in ap) {
-
-
-			pa.setGameManager(this);
-		}
+		setAttachmentPoints ();
 		isGamePaused = false;
-		powerSlider.maxValue = maxPowerBarValue;
-		powerSlider.value = 0f;
+//		powerSlider.maxValue = maxPowerBarValue;
+//		powerSlider.value = 0f;
 		//LoadGame ();
+	}
+	public void selectCharacter(int index){
+
+		if (index == 1) {
+			currentCharacter = Vehicle.Character.Booster;
+
+		} else if (index == 2) {
+			currentCharacter = Vehicle.Character.Heavy;
+
+
+		} else if (index == 3) {
+			currentCharacter = Vehicle.Character.Hopper;
+
+
+		}
+		charSelect.SetActive (false);
+	}
+	public void setAttachmentPoints(){
+
+
+		foreach (GameObject pa in playerVehicle.attachmentPoints) {
+
+
+			pa.GetComponent<AttachmentPoint>().setGameManager(this);
+		}
+
 	}
 	public void increasePowerBar(float value){
 
@@ -113,7 +136,6 @@ public class GameManager : MonoBehaviour {
 
 				cpp.attachID = bpa.attachmentPoint.GetComponent<AttachmentPoint> ().id;
 				save.carParts.Add (cpp);
-
 			}
 		}
 		if(playerVehicle.wheels.Count>0)
@@ -240,7 +262,7 @@ public class GameManager : MonoBehaviour {
 		//playerVehicle.GetComponentInChildren<Rigidbody> ().useGravity = true;
 		SaveGame ();
 
-		Application.LoadLevel("Diner 2-1");
+		Application.LoadLevel("LevelVA");
 
 
 	}
@@ -290,7 +312,7 @@ public class GameManager : MonoBehaviour {
 
 	public void doUltimate(){
 
-		if (canDoUltimate) {
+		if (!canDoUltimate) {
 			if (currentCharacter == Vehicle.Character.Booster) {
 				playerVehicle.doBoosterPizzaUltimate ();
 

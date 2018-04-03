@@ -33,17 +33,44 @@ public class Obstacle : MonoBehaviour {
 			if (type == Obstacle.Type.Breakable) {
 				//Slow car
 				//Destroy Object with Animation
-				col.gameObject.GetComponent<Vehicle> ().changeCarSpeedForThisMuchTime (30, 3);
+				GetComponent<Breakable>().breakObject(col.gameObject);
 				Destroy (gameObject);
 
 			}
+
+
+
+		}
+
+	}
+	void OnTriggerEnter(Collider col){
+		if (col.gameObject.layer == 9) {
+
+
 			if (type == Obstacle.Type.Grease) {
 				//make drifting tough
+				print ("Aaa");
+
+				GetComponent<Grease>().applyGrease(col.gameObject);
+
+			}
+		}
+
+
+	}
+	void OnTriggerExit(Collider col){
+
+		if (col.gameObject.layer == 9) {
+
+
+		
+			if (type == Obstacle.Type.Grease) {
+				//make drifting tough
+				GetComponent<Grease>().removeGrease(col.gameObject);
 
 			}
 
 
 		}
-
 	}
 }

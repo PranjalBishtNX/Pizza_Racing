@@ -155,8 +155,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceSpeed: 7000
+  weight: 0
   id: 6
   level: 1
+  pos: {fileID: 0}
+  shouldMove: 0
 --- !u!198 &198280575647077494
 ParticleSystem:
   m_ObjectHideFlags: 1

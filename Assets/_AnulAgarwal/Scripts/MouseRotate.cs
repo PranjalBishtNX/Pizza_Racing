@@ -21,8 +21,8 @@ public class MouseRotate : MonoBehaviour {
 
 		if (Input.GetMouseButton (0)) {
 			
-			transform.Rotate (cam.up, -Mathf.Deg2Rad * rotX, Space.World);
-			transform.Rotate (cam.right, -Mathf.Deg2Rad * rotY, Space.World);	
+			transform.Rotate (Camera.main.transform.up, -Mathf.Deg2Rad * rotX, Space.World);
+			transform.Rotate (Camera.main.transform.right, -Mathf.Deg2Rad * rotY, Space.World);	
 
 		}
 	}

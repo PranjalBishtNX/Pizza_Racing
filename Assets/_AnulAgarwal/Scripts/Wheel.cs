@@ -9,8 +9,11 @@ public class Wheel: MonoBehaviour {
 	public int level;
 	public bool motor;
 	public bool steering;
+	public float steeringHelp;
 	public bool reverseTurn; 
 	public int id;
+
+
 	public float speed;
 	public float turningRadius;
 }
