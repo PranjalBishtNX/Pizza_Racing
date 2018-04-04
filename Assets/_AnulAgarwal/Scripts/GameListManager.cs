@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameListManager : MonoBehaviour {
 
 	[SerializeField]
-	public List<VehicleBody> vehicleBody;
+	public List<GameObject> vehicleBody;
 
 	[SerializeField]
 	public	List<PropulsionObject> propulsionObj;

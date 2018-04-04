@@ -22,8 +22,6 @@ public class Vehicle : MonoBehaviour {
 	[SerializeField]
 	public List<GameObject> attachmentPoints;
 
-	[SerializeField]
-	public List<Attacher> attachPoints;
 
 	[SerializeField]
 	public List<PropulsionObject> propObj;
@@ -76,30 +74,12 @@ public class Vehicle : MonoBehaviour {
 
 		//Enable rigidbody
 		GetComponentInChildren<Rigidbody>().useGravity = true;
-		transform.rotation = Quaternion.Euler (0, 0, 0);
-		//Enable car movement
-	//	GetComponent<Engine> ().enabled = true;
-		//this is for power through wheels in case propulsion doesnt work
-		//GetComponent<Engine> ().enableCarToMove (numberOfEngine);
-
-
-		//Enable engine power
-
-
-		foreach (PropulsionObject pop in GetComponentInChildren<VehicleBody>().GetComponentsInChildren<PropulsionObject>()) {
-
-			if(pop== null){
-				pop.enabled = true;
-				pop.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
-			pop.GetComponent<Rigidbody> ().useGravity = true;
-
-			}
-
-		}
+		transform.rotation = Quaternion.Euler (0, 90, 0);
+	
 		//Disable object rotation
 		GetComponent<MouseRotate> ().enabled = false;
 		disableCarEditing ();
-		print ("initialized");
+
 		vb.callController ();
 //		gm.switchCam ();
 	}
@@ -130,7 +110,7 @@ public class Vehicle : MonoBehaviour {
 		GetComponent<MouseRotate> ().enabled = true;
 		enableCarEditing ();
 
-		gm.switchCam ();
+		//gm.switchCam ();
 	}
 	// Update is called once per frame
 	void Update () {
@@ -139,20 +119,24 @@ public class Vehicle : MonoBehaviour {
 	public void doBoosterPizzaUltimate(){
 		//increase speed
 		//2x current speed for 3s
+		print("Boooosting");
 
+		vb.changeCarSpeedForThisMuchTime (-50f, 5f);
 	}
 
 
 	public void doHopperPizzaUltimate(){
 		//5cm vertical jumjp
 		//Airborne for 3s
-
+		print("Hopppinggg");
+		vb.jumpCar ();
 	}
 
 	public void doHeavyPizzaUltimate(){
 		// Invulnerable for 3 sec
 		//Knocks over objects
 		
+		print("Invulnerableeee");
 
 	}
 

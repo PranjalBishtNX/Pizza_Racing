@@ -36,7 +36,7 @@ public class AttachmentPoint : MonoBehaviour {
 		}
 	}
 	public void setGameManager(GameManager gma){
-
+		print ("wheeew");
 		gm = gma;
 	}
 

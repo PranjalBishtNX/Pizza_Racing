@@ -41,7 +41,6 @@ public class RaceManager : MonoBehaviour {
 		GetComponent<GameManager> ().LoadGame ();
 		startCountdown ();
 		raceUIPanel.SetActive (true);
-		print ("started");
 
 	}
 	public void startCountdown(){
@@ -64,7 +63,7 @@ public class RaceManager : MonoBehaviour {
 	}
 	public void initiateRace(){
 		isRaceActive = true;
-		playerVehicle.enableCarPower ();
+		playerVehicle.vb.enableCarPower ();
 		//playBtn.SetActive (false);
 	}
 	// Update is called once per frame
@@ -82,6 +81,7 @@ public class RaceManager : MonoBehaviour {
 				raceCountDownTimer.gameObject.SetActive (false);
 				isRaceCountdownActive = false;
 				initiateRace ();
+
 			}
 			timerCountdown--;
 		}

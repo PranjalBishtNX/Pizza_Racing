@@ -70,13 +70,47 @@ public	List<BuilderPointAttacher> pointList;
 
 	[SerializeField]
 	public Text stat2;
+
+	[SerializeField]
+	public Vector3 spawnedWheelScale;
+
+	[SerializeField]
+	public Vector3 spawnedEngineScale;
+
+
+	public VehicleBody origBody;
+	public VehicleBody tmp_body;
+
+
+	[SerializeField]
+	public GameObject chasisPanel;
+
+
 	// Use this for initialization
 	void Start () {
 		
-		body_orig_id = glm.vehicleBody.FindIndex (d => d.id == vehicle.vb.id);
+		body_orig_id = glm.vehicleBody.FindIndex (d => d.GetComponent<VehicleBody>(). id == vehicle.vb.id);
+		origBody = vehicle.vb;
+	}
+	public void saveVehicleBody(){
+
+		chasisPanel.SetActive (false);
 
 	}
-	
+	public void changeVehicleBody(int index){
+		origBody = vehicle.vb;
+		GameObject spawnBody = Instantiate (glm.vehicleBody.Find (d => d.GetComponent<VehicleBody>().id == vehicle.vb.id + index), origBody.transform.position, Quaternion.identity);
+		Destroy (origBody.gameObject);
+		vehicle.vb = spawnBody.GetComponent<VehicleBody>();
+		spawnBody.transform.SetParent (vehicle.transform);
+
+		spawnBody.GetComponent<VehicleBody>(). updateAttachPoints ();
+		gm.setAttachmentPoints ();
+
+		spawnBody.GetComponent<VehicleBody>().disableCarPower ();
+
+	}
+
 	// Update is called once per frame
 	void Update () {
 		
@@ -129,7 +163,7 @@ public	List<BuilderPointAttacher> pointList;
 
 	void displayStat(string statM1, string statM2){
 
-		statBox.SetActive (true);
+	//	statBox.SetActive (true);
 		stat1.text = statM1;
 
 		stat2.text = statM2;
@@ -155,13 +189,14 @@ public	List<BuilderPointAttacher> pointList;
 		obj.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
 		//obj.transform.rotation = temp_rot;
 		if (obj.GetComponent<Wheel> () != null) {
-
-			obj.transform.localScale = new Vector3 (1f, 1f, 1f);
+			//to scale during spawn
+			//obj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
 		
 		}
 		else if(obj.GetComponent<PropulsionObject> () != null){
+			//to scale during spawn
 
-			obj.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
+			//obj.transform.localScale = new Vector3 (0.3f, 0.3f, 0.3f);
 
 
 		}
@@ -316,7 +351,7 @@ public	List<BuilderPointAttacher> pointList;
 			//	canExit = true;
 
 		
-	}
+	}  
 
 	int toggleNumber(int curVal, int maxVal, int change){
 		if (change > 0) {
@@ -377,7 +412,7 @@ public	List<BuilderPointAttacher> pointList;
 
 	}
 
-	public void cancelChanges(){
+	/*public void cancelChanges(){
 
 		//Cancel Car
 		Destroy(vehicle.vb.gameObject);
@@ -396,12 +431,31 @@ public	List<BuilderPointAttacher> pointList;
 		po.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
 		vehicle.po = orig_propulsion;
 
-	}
+	}*/
 
 //	[SerializeField]
 //	List<CarPart> cpp;
 	public void loadCar(List<CarPart> cp, int vehicleBody, int po, List<int> propObjList){
 		clearOldCar ();
+
+
+		origBody = vehicle.vb;
+	//	Destroy (vehicle.vb.gameObject);
+
+		GameObject spawnBody = Instantiate (glm.vehicleBody.Find (d => d.GetComponent<VehicleBody>().id == vehicleBody), vehicle.transform.position, Quaternion.identity);
+
+		vehicle.vb = spawnBody.GetComponent<VehicleBody>();
+		spawnBody.transform.SetParent (vehicle.transform);
+
+		spawnBody.GetComponent<VehicleBody>(). updateAttachPoints ();
+
+	//	gm.setAttachmentPoints ();
+
+//spawnBody.GetComponent<VehicleBody>().disableCarPower ();
+
+
+
+
 //		cpp = cp;
 		if (cp.Count > 0) {
 			//Check if object is null or not
@@ -423,18 +477,16 @@ public	List<BuilderPointAttacher> pointList;
 				bp.attachmentPoint = pointAttached;
 
 				if (cpa.type == 1) {
-
+					print (cpa.objID);
 					GameObject goa = Instantiate (glm.wheel.Find(d=> d.GetComponent<Wheel>().id == cpa.objID), pointAttached.transform.position, pointAttached.transform.rotation);
-
 					goa.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody> ().transform);
-				//	goa.transform.rotation = pointAttached.transform.rotation;
-
-				//	goa.GetComponentInChildren<MeshRenderer>().transform.rotation = Quaternion.Euler(Vector3.zero);
-				//	goa.transform.localScale = new Vector3 (0.03f, 0.03f, 0.03f);
+			//		goa.transform.localScale = spawnedWheelScale;
 //					vehicle.GetComponent<Engine>().wheelInfo.Add(goa.GetComponent<Wheel> ());
 					vehicle.wheels.Add (goa.GetComponent<Wheel> ());
-					vehicle.vb.cca.m_WheelColliders.Add (goa.GetComponentInChildren<WheelCollider>());
-					vehicle.vb.cca.m_WheelMeshes.Add (goa.GetComponentInChildren<MeshRenderer>().gameObject);
+					spawnBody.GetComponent<VehicleBody>().cca.m_WheelColliders.Add (goa.GetComponentInChildren<WheelCollider>());
+					spawnBody.GetComponent<VehicleBody>().cca.m_WheelMeshes.Add (goa.GetComponentInChildren<MeshRenderer>().gameObject);
+					print ("*************");
+
 					//vehicle.vb.cca.m_WheelMeshes.Add (goa.GetComponentInChildren<GameObject>());
 					if (goa.GetComponent<Wheel> ().steering) {
 
@@ -450,12 +502,14 @@ public	List<BuilderPointAttacher> pointList;
 
 					GameObject go= Instantiate (glm.propulsionObj.Find (d => d.id == cpa.objID).gameObject, pointAttached.transform.position, pointAttached.transform.rotation);
 					go.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody> ().transform);
+			//		go.transform.localScale = spawnedEngineScale;
+
 					//go.transform.localPosition =Vector3.zero;
 
 					vehicle.propObj.Add(go.GetComponent<PropulsionObject> ());
 
 
-				
+					vehicle.vb.cca.enginesAttached.Add (go);
 					bp.gameObj = go;
 				}
 				pointList.Add (bp);
@@ -468,12 +522,13 @@ public	List<BuilderPointAttacher> pointList;
 			}
 			q = 0;
 		}
-
+		vehicle.vb.disableCarPower ();
+		//vehicle.vb.enableCarCam ();
 	}
-	public void replaceParts(int vehicleBody, int po){
+	/*public void replaceParts(int vehicleBody, int po){
 		Destroy (vehicle.vb.gameObject);
 
-		vehicle.vb =Instantiate (glm.vehicleBody.Find(d=> d.id==vehicleBody), vehicle.vb.transform.position, vehicle.vb.transform.rotation) as VehicleBody;
+		vehicle.vb =Instantiate (glm.vehicleBody.Find(d=> d.GetComponent<VehicleBody>().id==vehicleBody), vehicle.vb.transform.position, vehicle.vb.transform.rotation) as VehicleBody;
 		vehicle.vb.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
 
 		Destroy (vehicle.po.gameObject);
@@ -487,8 +542,8 @@ public	List<BuilderPointAttacher> pointList;
 	public void replaceBody(int id){
 		Destroy (vehicle.vb.gameObject);
 
-		vehicle.vb =Instantiate (glm.vehicleBody.Find(d=> d.id==id), vehicle.vb.transform.position, vehicle.vb.transform.rotation) as VehicleBody;
-		vehicle.vb.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
+//		vehicle.vb =Instantiate (glm.vehicleBody.Find(d=> d.GetComponent<VehicleBody>().id==id), vehicle.vb.transform.position, vehicle.vb.transform.rotation) as VehicleBody;
+//		vehicle.vb.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
 
 	}
 	public void replaceProp(int id){
@@ -498,16 +553,16 @@ public	List<BuilderPointAttacher> pointList;
 
 		vehicle.po.transform.SetParent (vehicle.transform);
 
-	}
-	public void changeBody(int change){
+	} */
+/*	public void changeBody(int change){
 		initiateBodyChangeSequence ();
 //		orig_vehicle = vehicle.vb;
 
 	
-		int index=	toggleNumber(glm.vehicleBody.FindIndex (d => d.id == vehicle.vb.id),glm.vehicleBody.Count, change);
+		int index=	toggleNumber(glm.vehicleBody.FindIndex (d => d.GetComponent<VehicleBody>().id == vehicle.vb.id),glm.vehicleBody.Count, change);
 
 
-		VehicleBody go = Instantiate (glm.vehicleBody [index], vehicle.vb.transform.position, vehicle.vb.transform.rotation) as VehicleBody;
+		GameObject go = Instantiate (glm.vehicleBody [index], vehicle.vb.transform.position, vehicle.vb.transform.rotation) ;
 		go.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody>().transform);
 		//	vehicle.vb.gameObject = glm.vehicleBody [1].gameObject;
 
@@ -515,5 +570,5 @@ public	List<BuilderPointAttacher> pointList;
 
 		vehicle.vb = go;
 
-	}
+	}*/
 }
