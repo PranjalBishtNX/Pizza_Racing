@@ -20,7 +20,17 @@ ModelImporter:
     4300000: WH_Saucer_Black
     4300002: WH_Saucer
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackOutline
+    second: {fileID: 2100000, guid: 1b5c58ac907f1ae499bceea74998d80f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 0c855ee44fa473f46bbc2696b607c134, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

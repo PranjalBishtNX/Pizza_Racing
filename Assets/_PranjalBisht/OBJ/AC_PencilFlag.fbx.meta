@@ -1,26 +1,54 @@
 fileFormatVersion: 2
-guid: fb2fb1231cd4dec49b413c3d94c37d2d
-timeCreated: 1522746914
+guid: 9dc9d704a7ff3f64983591ce74d4da77
+timeCreated: 1522820427
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: AC_Batteries
-    100002: //RootNode
-    100004: AC_Batteries_Black
-    400000: AC_Batteries
-    400002: //RootNode
-    400004: AC_Batteries_Black
-    2100000: lambert1
-    2100002: BlackOutline
-    2300000: AC_Batteries
-    2300002: AC_Batteries_Black
-    3300000: AC_Batteries
-    3300002: AC_Batteries_Black
-    4300000: AC_Batteries
-    4300002: AC_Batteries_Black
+    100000: //RootNode
+    100002: Access_Pencilflag
+    100004: Access_Pencilflag_Black
+    400000: //RootNode
+    400002: Access_Pencilflag
+    400004: Access_Pencilflag_Black
+    2100000: M_Apple
+    2100002: M_Goop
+    2100004: M_Plastic
+    2100006: M_Chasis_2_Maps
+    2100008: BlackOutline
+    2300000: Access_Pencilflag
+    2300002: Access_Pencilflag_Black
+    3300000: Access_Pencilflag
+    3300002: Access_Pencilflag_Black
+    4300000: Access_Pencilflag
+    4300002: Access_Pencilflag_Black
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackOutline
+    second: {fileID: 2100000, guid: adff0ff5067ecb549882fa14207830d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Apple
+    second: {fileID: 2100000, guid: da06e9f75b793f7438d9453eb92e4d80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Chasis_2_Maps
+    second: {fileID: 2100000, guid: 916337db153b922449a7a7e0e8345d63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Goop
+    second: {fileID: 2100000, guid: 02fb9e1ae7d674a48a1c8e1ff1810e03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Plastic
+    second: {fileID: 2100000, guid: 54930ccf639a36942b885ebb96b4a76e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

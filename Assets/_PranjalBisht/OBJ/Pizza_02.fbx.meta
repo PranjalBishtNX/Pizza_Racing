@@ -25,7 +25,17 @@ ModelImporter:
     4300002: Pizza_02_BlackOutline
     4300004: Pizza_02_BlackOutline3
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackOutline
+    second: {fileID: 2100000, guid: b95b0931cf4b73a47a4f27625b37719e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 0a5d6dc56b6ecdf4686492ce7509088b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

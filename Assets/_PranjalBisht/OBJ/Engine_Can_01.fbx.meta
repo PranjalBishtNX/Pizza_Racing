@@ -30,6 +30,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Can
+    second: {fileID: 2100000, guid: c50e25a4036a1b247bfd4d37781eccdd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Metal_Unpainted
     second: {fileID: 2100000, guid: a5b1eb89ac0dde94ab2ec4a01feed745, type: 2}
   materials:

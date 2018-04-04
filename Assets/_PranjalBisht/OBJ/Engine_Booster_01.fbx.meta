@@ -20,7 +20,17 @@ ModelImporter:
     4300000: ENG_Booster
     4300002: ENG_Booster_Black
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackOutline
+    second: {fileID: 2100000, guid: adff0ff5067ecb549882fa14207830d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: a3d6ae6ae4759eb40b5c75947ff7e934, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
