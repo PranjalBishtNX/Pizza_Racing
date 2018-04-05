@@ -128,7 +128,7 @@ public class VehicleBody : MonoBehaviour {
 		}
 		GetComponent<MouseRotate> ().enabled = false;
 	//	GetComponentInChildren<Camera> (true).enabled = true;
-	//	disableCarEditing ();
+		disableCarEditing ();
 
 	callController ();
 		//		gm.switchCam ();
@@ -144,7 +144,7 @@ public class VehicleBody : MonoBehaviour {
 
 	public void disableCarEditing(){
 
-		foreach (GameObject go in GetComponentInParent<Vehicle>(). attachmentPoints) {
+		foreach (GameObject go in attachP) {
 
 			go.SetActive (false);
 		}
@@ -152,7 +152,7 @@ public class VehicleBody : MonoBehaviour {
 
 	public void enableCarCam(){
 //		Camera.main.enabled = false;
-		personalCam.enabled = true;
+//		personalCam.enabled = true;
 
 
 	}

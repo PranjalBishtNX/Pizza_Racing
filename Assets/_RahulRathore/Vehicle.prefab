@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 114524028356945990}
   - component: {fileID: 114708482840834570}
   m_Layer: 0
-  m_Name: ChassisType1_Bowl
+  m_Name: Vehicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -583,7 +583,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278655991612382}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.202, z: -0.066}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4286166951866722}
@@ -661,7 +661,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1551318717554324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 143.3, y: -3.72, z: -77.54}
+  m_LocalPosition: {x: -253.2, y: -3.72, z: -52.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4911031626259084}
@@ -695,7 +695,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1912365393645102}
-  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -705,7 +705,7 @@ Transform:
   - {fileID: 4053361645142262}
   m_Father: {fileID: 4801396772453464}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!4 &4965729816487120
 Transform:
   m_ObjectHideFlags: 1
@@ -1597,7 +1597,7 @@ MonoBehaviour:
   m_MaxHandbrakeTorque: 100000000
   m_Downforce: 100
   m_SpeedType: 0
-  m_Topspeed: 150
+  m_Topspeed: 50
   m_RevRangeBoundary: 1
   m_SlipLimit: 11
   m_BrakeTorque: 500
@@ -1610,6 +1610,8 @@ MonoBehaviour:
   speedReducer: 0
   steerReducer: 0
   brakeForce: 0
+  minSteerLevel: 0
+  maxSteerLevel: 0
   absBrakeInput: 0
   absSpeedFactor: 0
 --- !u!114 &114197322267875214

@@ -70,6 +70,14 @@ MonoBehaviour:
   currentAttachmentPoint: {fileID: 0}
   pointList: []
   typeNumber: 0
+  statBox: {fileID: 0}
+  stat1: {fileID: 0}
+  stat2: {fileID: 0}
+  spawnedWheelScale: {x: 0, y: 0, z: 0}
+  spawnedEngineScale: {x: 0, y: 0, z: 0}
+  origBody: {fileID: 0}
+  tmp_body: {fileID: 0}
+  chasisPanel: {fileID: 0}
 --- !u!114 &114445583453398508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,8 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vehicleBody:
-  - {fileID: 114404847548079320, guid: f10ec517a9b82724c81a392284c1233d, type: 2}
-  - {fileID: 114677853923877380, guid: 92048d35a412c1c4bab8fe2a8f467744, type: 2}
+  - {fileID: 1408452912872338, guid: fd5ff7dfe66918647ba7ee43b80b1413, type: 2}
   propulsionObj:
   - {fileID: 114740687539538384, guid: 31064885ce27ff84da61e2c243384ccc, type: 2}
   - {fileID: 114740687539538384, guid: 3718be78b817a8345974e003354dc1bc, type: 2}
@@ -92,7 +99,7 @@ MonoBehaviour:
   wheel:
   - {fileID: 1966768326753902, guid: a047f69e3896cd14ab2403e4598dc189, type: 2}
   - {fileID: 1966768326753902, guid: 9c530ff1e1385aa43844787c9110ac60, type: 2}
-  - {fileID: 1966768326753902, guid: 1b1b02c08d5df6246aaaa31a193fe01a, type: 2}
+  - {fileID: 1966768326753902, guid: 4088a59993125474a80b728607b00240, type: 2}
   - {fileID: 1966768326753902, guid: dfe663aa7de96e4409adb1b706ecea90, type: 2}
 --- !u!114 &114956833193874488
 MonoBehaviour:
@@ -134,3 +141,8 @@ MonoBehaviour:
   editCam: {fileID: 0}
   mainCam: {fileID: 0}
   pausePanel: {fileID: 0}
+  powerSlider: {fileID: 0}
+  maxPowerBarValue: 10
+  canDoUltimate: 0
+  currentCharacter: 0
+  charSelect: {fileID: 0}

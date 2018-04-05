@@ -37,6 +37,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_Plastic
     second: {fileID: 2100000, guid: da06e9f75b793f7438d9453eb92e4d80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 2826b18a0ea0f3e4cafc18eb546266e4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

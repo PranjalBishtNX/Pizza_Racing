@@ -8,12 +8,15 @@ ModelImporter:
     100000: WH_PaperRoll
     100002: WH_PaperRollBlackOutline
     100004: //RootNode
+    100006: NO
     400000: WH_PaperRoll
     400002: WH_PaperRollBlackOutline
     400004: //RootNode
+    400006: NO
     2100000: BlackOutline
     2100002: M_Chasis_1_Maps
     2100004: M_Cardboard
+    2100006: M_TextureMaps
     2300000: WH_PaperRoll
     2300002: WH_PaperRollBlackOutline
     3300000: WH_PaperRoll
@@ -36,6 +39,11 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Chasis_1_Maps
+    second: {fileID: 2100000, guid: 312376d646b19f340a9a37a4fca242ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_TextureMaps
     second: {fileID: 2100000, guid: 312376d646b19f340a9a37a4fca242ed, type: 2}
   materials:
     importMaterials: 1
@@ -66,7 +74,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.4
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

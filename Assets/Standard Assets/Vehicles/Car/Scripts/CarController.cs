@@ -64,6 +64,11 @@ namespace UnityStandardAssets.Vehicles.Car
 		[SerializeField]
 		public List<GameObject> enginesAttached;
 
+		[SerializeField]
+		float steer_intensity = 10;
+
+		[SerializeField]
+		float reset_intensit = 10;
 
 		[SerializeField]
 		public float highSpeedSteerControlValue;
@@ -83,6 +88,12 @@ namespace UnityStandardAssets.Vehicles.Car
 		[SerializeField]
 		public float brakeForce;
 
+
+		[SerializeField]
+		public float minSteerLevel;
+
+		[SerializeField]
+		public float maxSteerLevel;
 
         // Use this for initialization
         private void Start()
@@ -199,32 +210,49 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void Move(float steering, float accel, float footbrake, float handbrake)
         {
-			for (int i = 2; i < 4; i++)
+			for (int i = 0; i < 4; i++)
 			{
 				Quaternion quat;
 				Vector3 position;
 				m_WheelColliders[i].GetWorldPose(out position, out quat);
-				// m_WheelMeshes[i].transform.position = position;
+				 m_WheelMeshes[i].transform.position = position;
 				//	print(Quaternion.Euler(new Vector3(0f,m_WheelColliders[i].steerAngle,0f)));
 				//	m_WheelMeshes[i].transform.rotation = Quaternion.Euler(new Vector3(0f,m_WheelColliders[i].steerAngle,0f));
 					m_WheelMeshes[i].transform.rotation =quat;
-
+			
 //				m_WheelMeshes[i].transform.localRotation =  Quaternion.Euler(0, CurrentSteerAngle, 0);
 			}
 
 		
             //clamp input values
-		//	steering = Mathf.Clamp(steering, -(100 - ((CurrentSpeed / (MaxSpeed * highSpeedSteerControlValue)) * 100)), (100 - ((CurrentSpeed / (MaxSpeed* highSpeedSteerControlValue)) * 100)));
+
+			if(m_SteerAngle > minSteerLevel)
+			steering = Mathf.Clamp(steering, -(1 - (CurrentSpeed / MaxSpeed)) , (1 - (CurrentSpeed / MaxSpeed)));
+			
+
+
+//			print (CurrentSpeed / MaxSpeed);
+		//	steering = Mathf.Lerp(30,5,CurrentSpeed/MaxSpeed);
 		//	steering = steering - (steerReducer / 100);
 		//	steering = ;
-		//	print(CurrentSpeed);
             AccelInput = accel = Mathf.Clamp(accel, 0, 1);
             BrakeInput = footbrake = -1*Mathf.Clamp(footbrake, -1, 0);
             handbrake = Mathf.Clamp(handbrake, 0, 1);
 
             //Set the steer on the front wheels.
             //Assuming that wheels 0 and 1 are the front wheels.
-            m_SteerAngle = steering*m_MaximumSteerAngle;
+         //   m_SteerAngle = steering*m_MaximumSteerAngle;
+
+
+			m_SteerAngle = m_SteerAngle + steering * Time.deltaTime * steer_intensity;
+			m_SteerAngle = Mathf.Clamp (m_SteerAngle, -m_MaximumSteerAngle, m_MaximumSteerAngle);
+
+			if (Mathf.Abs (steering) < 0.3f) {
+
+				m_SteerAngle = m_SteerAngle - (m_SteerAngle * reset_intensit * Time.deltaTime);
+
+			}
+
 
 			foreach (int index in wheelsToSteer) {
 			//	print (index);
@@ -250,15 +278,15 @@ namespace UnityStandardAssets.Vehicles.Car
 			absBrakeInput = Mathf.Abs (Mathf.Clamp (Input.GetAxis ("Vertical"),-1.0f,0.0f));
 			absSpeedFactor = Mathf.Clamp (CurrentSpeed, 70, 150);
 			if ((handbrake > 0 || footbrake > 0 ) && CurrentSpeed > 13) {
-//				print (-transform.forward * absSpeedFactor * m_Rigidbody.mass * brakeForce * absBrakeInput);
-				m_Rigidbody.AddForce (transform.forward * m_Rigidbody.mass/50* brakeForce,ForceMode.Acceleration);
+				//print (-transform.forward * absSpeedFactor * m_Rigidbody.mass * brakeForce * absBrakeInput);
+				m_Rigidbody.AddForce (transform.forward * m_Rigidbody.mass* brakeForce,ForceMode.Force);
 			}
 
             CalculateRevs();
             GearChanging();
 
             AddDownForce();
-           // CheckForWheelSpin();
+            //CheckForWheelSpin();
             TractionControl();
         }
 

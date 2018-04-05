@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: BottleTop_1
-    second: {fileID: 2100000, guid: f8eec2d03b538e9429c31f037a003419, type: 2}
+    second: {fileID: 2100000, guid: ed917f45c5b4b0c4b9b44d183166d219, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

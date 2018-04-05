@@ -426,8 +426,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1613241183873552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0022051, y: 0.18311915, z: -0.113726705}
-  m_LocalScale: {x: 0.8588748, y: 0.06412929, z: 1.6027424}
+  m_LocalPosition: {x: 0.0076, y: 0.18311915, z: -0.113726705}
+  m_LocalScale: {x: 1.109775, y: 0.06412929, z: 1.6027424}
   m_Children: []
   m_Father: {fileID: 4663261913060120}
   m_RootOrder: 0
@@ -491,7 +491,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1073275760783168}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.201, z: -0.066}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4779191300617246}
@@ -645,7 +645,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1408452912872338}
   m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -250.84659, y: -5.6005116, z: -54.21685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4663261913060120}
@@ -1389,9 +1389,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1408452912872338}
   serializedVersion: 2
-  m_Mass: 5000
-  m_Drag: 0.14
-  m_AngularDrag: 0.43
+  m_Mass: 1800
+  m_Drag: 0.15
+  m_AngularDrag: 0.3
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1537,6 +1537,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   id: 3
   spawnIndex: 2
+  isRight: 1
 --- !u!114 &114327071556637342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1575,6 +1576,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   id: 6
   spawnIndex: 1
+  isRight: 0
 --- !u!114 &114533955072349740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1601,6 +1603,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   id: 2
   spawnIndex: 2
+  isRight: 1
 --- !u!114 &114658279866297736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1643,6 +1646,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   id: 5
   spawnIndex: 2
+  isRight: 0
 --- !u!114 &114712403347683348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1681,6 +1685,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   id: 4
   spawnIndex: 2
+  isRight: 0
 --- !u!114 &114862816301287384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1701,28 +1706,32 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_CentreOfMassOffset: {x: 0, y: 0.145, z: -0.055}
-  m_MaximumSteerAngle: 25
-  m_SteerHelper: 0.8
-  m_TractionControl: 0
-  m_FullTorqueOverAllWheels: 4000
-  fullTorqueOverWheels: 4000
-  m_ReverseTorque: 500
+  m_MaximumSteerAngle: 15
+  m_SteerHelper: 0.605
+  m_TractionControl: 0.183
+  m_FullTorqueOverAllWheels: 2300
+  fullTorqueOverWheels: 2300
+  m_ReverseTorque: 1000
   m_MaxHandbrakeTorque: 100000000
-  m_Downforce: 100
+  m_Downforce: 500
   m_SpeedType: 0
-  m_Topspeed: 150
+  m_Topspeed: 100
   m_RevRangeBoundary: 1
-  m_SlipLimit: 11
+  m_SlipLimit: 5
   m_BrakeTorque: 500
   wheelsToSteer: 
   m_Rigidbody: {fileID: 54450057375417092}
   currentNumberOfEngine: 0
   enginesAttached: []
-  highSpeedSteerControlValue: 0
+  steer_intensity: 10
+  reset_intensit: 10
+  highSpeedSteerControlValue: 100
   maxTorque: 0
   speedReducer: 1
-  steerReducer: 1
-  brakeForce: 0.05
+  steerReducer: 5
+  brakeForce: 0.5
+  minSteerLevel: 0
+  maxSteerLevel: 0
   absBrakeInput: 0
   absSpeedFactor: 0
 --- !u!114 &114879266514149916
@@ -1763,6 +1772,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   id: 1
   spawnIndex: 1
+  isRight: 0
 --- !u!114 &114971367117130984
 MonoBehaviour:
   m_ObjectHideFlags: 1

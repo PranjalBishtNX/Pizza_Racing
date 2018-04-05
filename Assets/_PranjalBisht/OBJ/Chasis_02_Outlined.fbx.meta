@@ -45,12 +45,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Bottle_PlasticOuter
-    second: {fileID: 2100000, guid: 27b5e5a951d3c54419bf100a0639983e, type: 2}
+    second: {fileID: 2100000, guid: 1b56b828d1d53f84cb82c8c1cae4bc93, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Chasis_2_Maps
-    second: {fileID: 2100000, guid: 3a2782e0d74f6624fa69c2637630634b, type: 2}
+    second: {fileID: 2100000, guid: 27b5e5a951d3c54419bf100a0639983e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -59,18 +59,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Metal_Painted
+    second: {fileID: 2100000, guid: 7b205fd5eb2053349ad81a10dce58e78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Metal_Unpainted
+    second: {fileID: 2100000, guid: a5b1eb89ac0dde94ab2ec4a01feed745, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_PencilAxis
-    second: {fileID: 2100000, guid: d182da172b5a95b41ae6de8a7c5f25dd, type: 2}
+    second: {fileID: 2100000, guid: 49550029d7f725549aeb768d902d9e9c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Plastic
-    second: {fileID: 2100000, guid: eb0ef4f647dd0ff4f97278a006bbae90, type: 2}
+    second: {fileID: 2100000, guid: 49550029d7f725549aeb768d902d9e9c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Tape1
-    second: {fileID: 2100000, guid: 7da3e6ffe8e68b342a865ff2b2a2cf58, type: 2}
+    second: {fileID: 2100000, guid: d084b55866f441f4389a1a0c69d98d99, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

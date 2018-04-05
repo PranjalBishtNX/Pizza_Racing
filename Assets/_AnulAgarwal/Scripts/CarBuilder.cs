@@ -469,6 +469,9 @@ public	List<BuilderPointAttacher> pointList;
 				Destroy (vehicle.po.gameObject);
 			} 
 			int q = 0;
+
+			List<GameObject> toBeRotated = new List<GameObject>();
+
 			foreach (CarPart cpa in cp) {
 
 				GameObject pointAttached= vehicle.attachmentPoints.Find(d=> d.GetComponent<AttachmentPoint>().id==cpa.attachID);
@@ -477,7 +480,6 @@ public	List<BuilderPointAttacher> pointList;
 				bp.attachmentPoint = pointAttached;
 
 				if (cpa.type == 1) {
-					print (cpa.objID);
 					GameObject goa = Instantiate (glm.wheel.Find(d=> d.GetComponent<Wheel>().id == cpa.objID), pointAttached.transform.position, pointAttached.transform.rotation);
 					goa.transform.SetParent (vehicle.GetComponentInChildren<VehicleBody> ().transform);
 			//		goa.transform.localScale = spawnedWheelScale;
@@ -486,7 +488,11 @@ public	List<BuilderPointAttacher> pointList;
 					spawnBody.GetComponent<VehicleBody>().cca.m_WheelColliders.Add (goa.GetComponentInChildren<WheelCollider>());
 					spawnBody.GetComponent<VehicleBody>().cca.m_WheelMeshes.Add (goa.GetComponentInChildren<MeshRenderer>().gameObject);
 					print ("*************");
+					if (pointAttached.GetComponent<AttachmentPoint>().isRight) {
+					//	vehicle.vb.cca.wheelsToRotate.Add (vehicle.vb.cca.m_WheelColliders.Count - 1);
+						toBeRotated.Add (goa.GetComponentInChildren<MeshRenderer> ().gameObject);
 
+					}
 					//vehicle.vb.cca.m_WheelMeshes.Add (goa.GetComponentInChildren<GameObject>());
 					if (goa.GetComponent<Wheel> ().steering) {
 
@@ -516,14 +522,18 @@ public	List<BuilderPointAttacher> pointList;
 
 
 
-		
+				foreach (GameObject go in toBeRotated) {
+
+					vehicle.vb.cca.m_WheelMeshes.Find (d => d == go).transform.localScale = vehicle.vb.cca.m_WheelMeshes.Find (d => d == go).transform.localScale * -1f;
+
+				}
 				//	go.transform.localPosition = new Vector3 (cpa.posX, cpa.posY, cpa.posZ);
 				q++;
 			}
 			q = 0;
 		}
 		vehicle.vb.disableCarPower ();
-		//vehicle.vb.enableCarCam ();
+		vehicle.vb.enableCarCam ();
 	}
 	/*public void replaceParts(int vehicleBody, int po){
 		Destroy (vehicle.vb.gameObject);

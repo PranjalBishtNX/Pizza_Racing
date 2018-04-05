@@ -13,6 +13,8 @@ public class AttachmentPoint : MonoBehaviour {
 	[SerializeField]
 	int spawnIndex;
 
+	[SerializeField]
+	public bool isRight;
 	// Use this for initialization
 	void Start () {
 		
